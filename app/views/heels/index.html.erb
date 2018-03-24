@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Heels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Height</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @heels.each do |heel| %>
+      <tr>
+        <td><%= heel.Height %></td>
+        <td><%= link_to 'Show', heel %></td>
+        <td><%= link_to 'Edit', edit_heel_path(heel) %></td>
+        <td><%= link_to 'Destroy', heel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Heel', new_heel_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Colorname:</strong>
+  <%= @color.ColorName %>
+</p>
+
+<p>
+  <strong>Hexidecimal:</strong>
+  <%= @color.Hexidecimal %>
+</p>
+
+<%= link_to 'Edit', edit_color_path(@color) %> |
+<%= link_to 'Back', colors_path %>

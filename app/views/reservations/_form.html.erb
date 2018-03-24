@@ -1,0 +1,57 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Date %>
+    <%= form.date_select :Date, id: :reservation_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :CustomerID %>
+    <%= form.number_field :CustomerID, id: :reservation_CustomerID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ReservStatusID %>
+    <%= form.number_field :ReservStatusID, id: :reservation_ReservStatusID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ProductID %>
+    <%= form.number_field :ProductID, id: :reservation_ProductID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ColorID %>
+    <%= form.number_field :ColorID, id: :reservation_ColorID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :HeelID %>
+    <%= form.number_field :HeelID, id: :reservation_HeelID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Quantity %>
+    <%= form.number_field :Quantity, id: :reservation_Quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EmployeeID %>
+    <%= form.number_field :EmployeeID, id: :reservation_EmployeeID %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

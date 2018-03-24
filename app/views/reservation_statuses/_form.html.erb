@@ -1,0 +1,22 @@
+<%= form_with(model: reservation_status, local: true) do |form| %>
+  <% if reservation_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation_status.errors.count, "error") %> prohibited this reservation_status from being saved:</h2>
+
+      <ul>
+      <% reservation_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :StatusName %>
+    <%= form.text_field :StatusName, id: :reservation_status_StatusName %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

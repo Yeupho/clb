@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Date: 2018-03-23
+  CustomerID: 1
+  ReservStatusID: 1
+  ProductID: 1
+  ColorID: 1
+  HeelID: 1
+  Quantity: 1
+  EmployeeID: 1
+
+two:
+  Date: 2018-03-23
+  CustomerID: 1
+  ReservStatusID: 1
+  ProductID: 1
+  ColorID: 1
+  HeelID: 1
+  Quantity: 1
+  EmployeeID: 1

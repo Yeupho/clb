@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  CountryName: MyString
+  CountryAbbrev: MyString
+
+two:
+  CountryName: MyString
+  CountryAbbrev: MyString

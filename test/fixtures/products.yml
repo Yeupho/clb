@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Product_Name: MyString
+  Material: 1
+  Heel: 1
+  ProductStatus: 1
+  DateofArrival: 2018-03-23
+  SerialNumber: MyText
+  StockQuantity: 1
+  ImageURL: MyText
+
+two:
+  Product_Name: MyString
+  Material: 1
+  Heel: 1
+  ProductStatus: 1
+  DateofArrival: 2018-03-23
+  SerialNumber: MyText
+  StockQuantity: 1
+  ImageURL: MyText
