@@ -67,3 +67,14 @@ gem 'bootstrap-sass', '~>3.3.7'
 
 gem 'materialize-sass', '~> 1.0.0.alpha4'
 
+gem 'material_icons'
+
+gem 'cancancan', '~> 2.0'
+
+gem 'rails_admin'
+gem 'bootstrap-datepicker-rails'
+
+gem 'cocoon'
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'devise'

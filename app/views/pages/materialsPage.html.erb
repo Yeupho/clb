@@ -1,0 +1,89 @@
+<div class="container">
+
+  <h1>Materials
+    <a href="http://localhost:3000/materials/new" class="btn-floating btn-large waves-effect waves-light blue">
+      <i class="material-icons">add</i>
+    </a>
+
+
+  </h1>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for materials..." title="Type in a name">
+
+
+  <ul id="myUL">
+
+    <% Material.all.each do |x|%>
+
+      <div2>
+        <div class ="cardContraints">
+          <div class="row">
+            <div class="col s10 m7 13">
+              <div class="card horizontal">
+                <div class="card-image">
+                  <img src="http://www.uh.edu/marketing/brand/graphic-standards/_img/logo-athletics-uh-red.png">
+
+
+                  <span class="card-title">
+
+
+
+                 </span>
+
+
+
+                </div>
+                <div class="card-content">
+                  <strong>
+                    <li2 class="waves-effect waves-pink btn blue">
+                      <%= link_to x.description, color_path(x.id)%>
+                    </li2>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div2>
+
+
+    <%end%>
+  </ul>
+
+</div>
+
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, ul2,p2,x;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li2');
+        //ul2 = document.getElementById('myCardDIV');
+
+        ul2 = ul.getElementsByTagName('div2');
+        p2 = ul.getElementsByTagName('p');
+
+
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if ((a.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+                li[i].style.display = "";
+                ul2[i].style.display ="";
+
+
+            } else {
+                li[i].style.display = "none";
+                ul2[i].style.display ="none";
+
+
+
+            }
+        }
+
+    }
+</script>

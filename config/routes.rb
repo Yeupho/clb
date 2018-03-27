@@ -19,5 +19,17 @@ Rails.application.routes.draw do
   resources :colors
   resources :materials
   resources :products
+
+
+
+
+  get 'pages/productsPage'
+
+  get 'pages/customersPage'
+
+  get 'pages/colorsPage'
+
+  get 'pages/materialsPage'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
