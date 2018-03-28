@@ -12,13 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :FirstName %>
-    <%= form.text_field :FirstName, id: :customer_FirstName %>
+    <span>
+      <%= form.label :FirstName %>
+      <%= form.text_field :FirstName, id: :customer_FirstName %>
+      <%= form.label :LastName %>
+      <%= form.text_field :LastName, id: :customer_LastName %>
+    </span>
   </div>
 
   <div class="field">
-    <%= form.label :LastName %>
-    <%= form.text_field :LastName, id: :customer_LastName %>
+
   </div>
 
   <div class="field">
@@ -33,12 +36,13 @@
 
   <div class="field">
     <%= form.label :Country %>
-    <%= form.number_field :Country, id: :customer_Country %>
+    <%= form.collection_select(:country_id, Country.all, :id, :CountryName, {prompt: "Country"}, {class: "form-control"}) %>
+
   </div>
 
   <div class="field">
     <%= form.label :State %>
-    <%= form.number_field :State, id: :customer_State %>
+    <%= form.collection_select(:state_id, State.all, :id, :StateName, {prompt: "State/Province"}, {class: "form-control"}) %>
   </div>
 
   <div class="field">
@@ -56,10 +60,10 @@
     <%= form.text_field :Address, id: :customer_Address %>
   </div>
 
-  <div class="field">
-    <%= form.label :CustomerStatusID %>
-    <%= form.number_field :CustomerStatusID, id: :customer_CustomerStatusID %>
-  </div>
+  <!--<div class="field">-->
+    <!--<= form.label :CustomerStatusID %>-->
+    <!--<= form.number_field :CustomerStatusID, id: :customer_CustomerStatusID %>-->
+  <!--</div>-->
 
   <div class="actions">
     <%= form.submit %>

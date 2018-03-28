@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
 
-
+  #admin
+  get 'admin' => 'admin#index'
 
   resources :employee_statuses
   resources :employee_types

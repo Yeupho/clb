@@ -78,10 +78,10 @@ EmployeeStatus.destroy_all
 #   end
 # end
 #
-# # Color
-#   File.open("#{Rails.root}/db/datafiles/Color.csv") do |colors|
-#     colors.read.each_line do |color|
-#       color_name, color_code = color.chomp.split(",")
-#       Color.create!(:ColorName=>color_name, :Hexidecimal=>color_code)
-#     end
-#   end
+# Color
+  File.open("#{Rails.root}/db/datafiles/Color.csv") do |colors|
+    colors.read.each_line do |color|
+      color_name, color_code = color.chomp.split(",")
+      Color.create!(:ColorName=>color_name, :Hexidecimal=>color_code)
+    end
+  end
