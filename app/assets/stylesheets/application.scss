@@ -1,23 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "materialize";
 
 
 body {
   background: #F7F5F5;
 }
 
-
-.navbar {
-  background-color: #322e3f;
-  color: white;
-  min-height: 60px;
-}
-.navbar-inverse {
-  background-color: #736692;
-  color:white;
-
-}
 
 .featurette {
   display: table;
