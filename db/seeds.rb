@@ -69,15 +69,15 @@ EmployeeStatus.destroy_all
       State.create!(:StateName=>state_name, :StateAbbrev=>state_abbrev)
     end
   end
-#
-# # Country Also needs to be added onto ERD | Luke, Mar 3, 2017
-# File.open("#{Rails.root}/db/datafiles/Country.csv") do |countries|
-#   countries.read.each_line do |country|
-#     country_name, country_abbrev = country.chomp.split(",")
-#     Country.create!(:CountryName=>country_name, :CountryAbbrev=>country_abbrev)
-#   end
-# end
-#
+
+# Country Also needs to be added onto ERD | Luke, Mar 3, 2017
+File.open("#{Rails.root}/db/datafiles/Country.csv") do |countries|
+  countries.read.each_line do |country|
+    country_name, country_abbrev = country.chomp.split(",")
+    Country.create!(:CountryName=>country_name, :CountryAbbrev=>country_abbrev)
+  end
+end
+
 # Color
   File.open("#{Rails.root}/db/datafiles/Color.csv") do |colors|
     colors.read.each_line do |color|
