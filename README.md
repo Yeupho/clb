@@ -45,7 +45,7 @@ OR
 - bundle install
 - rails db:create (creates dev and test databases based on database.yml)
 - After you db:create, replace the database name in the postgres connection to:
-- Do something new: GOLEMS_development
+- Do something new: clb_development
 - rails db:migrate
 
 
