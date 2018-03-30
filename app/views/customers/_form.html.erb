@@ -17,11 +17,11 @@
   <div class="field">
       <div class="row">
         <div class="col s6">
-          <%= form.label :FirstName %>
+          <%= form.label 'First Name' %>
           <%= form.text_field :FirstName, id: :customer_FirstName %>
         </div>
         <div class="col s6">
-          <%= form.label :LastName %>
+          <%= form.label 'Last Name' %>
           <%= form.text_field :LastName, id: :customer_LastName %>
         </div>
       </div>
@@ -30,27 +30,27 @@
   <div class="field">
 
   </div>
-
-  <div class="field">
-    <%= form.label :Email %>
-    <%= form.text_field :Email, id: :customer_Email %>
+  <div class="row">
+    <div class="col s6">
+      <%= form.label :Email %>
+      <%= form.text_field :Email, id: :customer_Email %>
+    </div>
+    <div class="col s6">
+      <%= form.label :Phone %>
+      <%= form.text_field :Phone, id: :customer_Phone %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Phone %>
-    <%= form.text_field :Phone, id: :customer_Phone %>
+  <div class="row">
+    <div class="col s12">
+      <%= form.label :Address %>
+      <%= form.text_field :Address, id: :customer_Address %>
+    </div>
   </div>
-        <div class="field">
-          <%= form.label :Address %>
-          <%= form.text_field :Address, id: :customer_Address %>
-        </div>
   <div class="row">
     <div class="col s6">
       <%= form.label :Country %>
       <%= form.collection_select(:country_id, Country.all, :id, :CountryName, {prompt: "Country"}, {class: "form-control"}) %>
-
     </div>
-
     <div class="col s6">
       <%= form.label :State %>
       <%= form.collection_select(:state_id, State.all, :id, :StateName, {prompt: "State/Province"}, {class: "form-control"}) %>

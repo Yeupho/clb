@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<!--This needs to be datepicker;-->
   <div class="field">
     <%= form.label :Date %>
     <%= form.date_select :Date, id: :reservation_Date %>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :CustomerID %>
-    <%= form.number_field :CustomerID, id: :reservation_CustomerID %>
+    <%= form.collection_select(:CustomerID, Customer.all, :id, :FirstName, {prompt: "Customer"}, {class: "form-control"}) %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :ProductID %>
-    <%= form.number_field :ProductID, id: :reservation_ProductID %>
+    <%= form.collection_select(:ProductID, Product.all, :id, :Product_Name, {prompt: "Product"}, {class: "form-control"}) %>
   </div>
 
   <div class="field">
@@ -37,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :HeelID %>
-    <%= form.number_field :HeelID, id: :reservation_HeelID %>
+    <%= form.label "Heel Height (mm)" %>
+    <%= form.collection_select(:HeelID, Heel.all, :id, :Height, {prompt: "Height in mm"}, {class: "form-control"}) %>
   </div>
 
   <div class="field">
