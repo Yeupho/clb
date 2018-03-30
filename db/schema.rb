@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180330205202) do
+=======
+ActiveRecord::Schema.define(version: 20180330211242) do
+>>>>>>> acbb98f1d1b627830dd08411062b32cef78bed64
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +122,13 @@ ActiveRecord::Schema.define(version: 20180330205202) do
     t.integer "HeelID", default: 1
     t.integer "Quantity", default: 1
     t.integer "EmployeeID", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "SizeID"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.float "SizeName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
