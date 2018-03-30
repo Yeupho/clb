@@ -10,14 +10,21 @@
       </ul>
     </div>
   <% end %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Panel with panel-primary class</div>
 
+      <div class="panel-body">
   <div class="field">
-    <span>
-      <%= form.label :FirstName %>
-      <%= form.text_field :FirstName, id: :customer_FirstName %>
-      <%= form.label :LastName %>
-      <%= form.text_field :LastName, id: :customer_LastName %>
-    </span>
+      <div class="row">
+        <div class="col s6">
+          <%= form.label :FirstName %>
+          <%= form.text_field :FirstName, id: :customer_FirstName %>
+        </div>
+        <div class="col s6">
+          <%= form.label :LastName %>
+          <%= form.text_field :LastName, id: :customer_LastName %>
+        </div>
+      </div>
   </div>
 
   <div class="field">
@@ -33,32 +40,36 @@
     <%= form.label :Phone %>
     <%= form.text_field :Phone, id: :customer_Phone %>
   </div>
+        <div class="field">
+          <%= form.label :Address %>
+          <%= form.text_field :Address, id: :customer_Address %>
+        </div>
+  <div class="row">
+    <div class="col s6">
+      <%= form.label :Country %>
+      <%= form.collection_select(:country_id, Country.all, :id, :CountryName, {prompt: "Country"}, {class: "form-control"}) %>
 
-  <div class="field">
-    <%= form.label :Country %>
-    <%= form.collection_select(:country_id, Country.all, :id, :CountryName, {prompt: "Country"}, {class: "form-control"}) %>
+    </div>
 
+    <div class="col s6">
+      <%= form.label :State %>
+      <%= form.collection_select(:state_id, State.all, :id, :StateName, {prompt: "State/Province"}, {class: "form-control"}) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :State %>
-    <%= form.collection_select(:state_id, State.all, :id, :StateName, {prompt: "State/Province"}, {class: "form-control"}) %>
+  <div class="row">
+    <div class="col s6">
+      <%= form.label :City %>
+      <%= form.text_field :City, id: :customer_City %>
+    </div>
+
+    <div class="col s6">
+      <%= form.label :Zipcode %>
+      <%= form.text_field :Zipcode, id: :customer_Zipcode %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :City %>
-    <%= form.text_field :City, id: :customer_City %>
-  </div>
 
-  <div class="field">
-    <%= form.label :Zipcode %>
-    <%= form.text_field :Zipcode, id: :customer_Zipcode %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Address %>
-    <%= form.text_field :Address, id: :customer_Address %>
-  </div>
 
   <!--<div class="field">-->
     <!--<= form.label :CustomerStatusID %>-->
@@ -66,6 +77,7 @@
   <!--</div>-->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
+      </div></div>
 <% end %>

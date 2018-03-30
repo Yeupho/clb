@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180323221837) do
     t.string "City"
     t.string "Zipcode"
     t.string "Address"
-    t.integer "CustomerStatusID"
+    t.integer "CustomerStatusID", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180323221837) do
     t.string "LastName"
     t.string "Phone"
     t.integer "EmployeeTypeID"
-    t.integer "EmployeeStatusID"
+    t.integer "EmployeeStatusID", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -111,13 +111,13 @@ ActiveRecord::Schema.define(version: 20180323221837) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "Date"
-    t.integer "CustomerID"
-    t.integer "ReservStatusID"
-    t.integer "ProductID"
-    t.integer "ColorID"
-    t.integer "HeelID"
-    t.integer "Quantity"
-    t.integer "EmployeeID"
+    t.integer "CustomerID", default: 1
+    t.integer "ReservStatusID", default: 1
+    t.integer "ProductID", default: 1
+    t.integer "ColorID", default: 1
+    t.integer "HeelID", default: 1
+    t.integer "Quantity", default: 1
+    t.integer "EmployeeID", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
