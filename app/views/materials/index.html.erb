@@ -1,27 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Materials</h1>
+<h1>Materials
+  <a href="http://localhost:3000/materials/new" class="btn-floating btn-large waves-effect waves-light blue">
+    <i class="material-icons">add</i>
+  </a>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="panel panel-default" style="margin-top:25px;width:90%">
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-1">
+        <!--< if @colors.length > 0 && @colors.total_pages > 1 %>-->
+        <!--<div class="input-group stylish-input-group">-->
+        <!--<input type="text" class="form-control" placeholder="Search">-->
+        <!--<span class="input-group-addon">-->
+        <!--<button type="submit">-->
+        <!--<span class="glyphicon glyphicon-search"></span>-->
+        <!--</button>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--< end %>-->
+      </div>
 
-  <tbody>
+      <div class="col-lg-1 col-lg-offset-1">
+        <!--<div class="col-lg-4 text-center">-->
+        <!--<= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Color'.html_safe, new_color_path, class: "btn btn-primary btn-md show-btn", :method => :get %>-->
+        <!--</div>-->
+      </div>
+    </div>
     <% @materials.each do |material| %>
-      <tr>
-        <td><%= material.Description %></td>
-        <td><%= link_to 'Show', material %></td>
-        <td><%= link_to 'Edit', edit_material_path(material) %></td>
-        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div style="float:left;margin-left:30px;margin-right:30px;margin-bottom:50px;">
+        <div style="background-color:deepskyblue ;height:60px;width:60px;border-radius:15px;margin-left:15px;">
+          <p style="text-align:center;padding-top:15px;padding-bottom:10px;color:ghostwhite;text-shadow: 2px 2px 4px #000000;"><%= material.Description %></p>
+
+
+        </div>
+        <tr data-link="<%= material_path(material) %>">
+          <div class="dropdown" style="margin-left:75px;margin-top:-40px;">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Edit', edit_material_path(material), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
+
+              <li><%= link_to 'Delete', material_path(material, type: :normal),
+                              method: :delete,class: ' ', data: { confirm: 'Are you sure?' },
+                              redirect_to: '/admin#colors_tab' %></li>
+            </ul>
+          </div>
+        </tr>
+      </div>
     <% end %>
+  </div>
+</div>
+</div>
+<br>
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Material', new_material_path %>
