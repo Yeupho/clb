@@ -32,6 +32,9 @@ EmployeeStatus.destroy_all
 # ================== Look Up Tables (First) =========================================
 # ===================================================================================
 
+User.create! :email => "joe@intra.net", :password => "password", :password_confirmation => "password"
+
+
   HeelList = [0, 35, 55, 60, 70, 85, 100, 120, 130, 140, 150, 160]
   HeelList.each do |name|
     Heel.create!(Height:name)

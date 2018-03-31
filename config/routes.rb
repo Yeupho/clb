@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_for :models
   resources :sizes
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
   #Root Index
   root 'home#index'
 
