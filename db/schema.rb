@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330211242) do
+ActiveRecord::Schema.define(version: 20180330233224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,12 +95,11 @@ ActiveRecord::Schema.define(version: 20180330211242) do
     t.integer "Material"
     t.integer "Heel"
     t.integer "ProductStatus"
-    t.date "DateofArrival"
     t.text "SerialNumber"
-    t.integer "StockQuantity"
     t.text "ImageURL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ColorID"
   end
 
   create_table "reservation_statuses", force: :cascade do |t|
@@ -114,9 +113,6 @@ ActiveRecord::Schema.define(version: 20180330211242) do
     t.integer "CustomerID", default: 1
     t.integer "ReservStatusID", default: 1
     t.integer "ProductID", default: 1
-    t.integer "ColorID", default: 1
-    t.integer "HeelID", default: 1
-    t.integer "Quantity", default: 1
     t.integer "EmployeeID", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
