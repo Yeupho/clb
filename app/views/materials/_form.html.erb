@@ -13,10 +13,10 @@
 
   <div class="field">
     <%= form.label :Description %>
-    <%= form.text_field :Description, id: :material_Description %>
+    <%= form.text_field :Description, id: :material_Description, :required => true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>
