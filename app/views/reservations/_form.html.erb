@@ -40,7 +40,7 @@
 
   <div class="field">
     <%= form.label :EmployeeID %>
-    <%= form.collection_select(:EmployeeID, Employee.all, :id, :FirstName, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:EmployeeID, Employee.all, :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
 
   </div>
 

@@ -4,6 +4,6 @@ class Employee < ApplicationRecord
   has_many :reservations
 
   def full_name2
-    self.FirstName + ' ' + self.LastName
+    self.id.to_s + ' ' + self.FirstName + ' ' + self.LastName
   end
 end

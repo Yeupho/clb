@@ -138,3 +138,13 @@ end
     end
   end
 
+# ===================================================================================
+# ================== Non-associative Tables =========================================
+# ===================================================================================
+  File.open("#{Rails.root}/db/datafiles/PreOrder.csv") do |reservation|
+    reservation.read.each_line do |reservation|
+      date, custid, reservestat, prodid, empid, size = reservation.chomp.split(",")
+      Reservation.create!(:Date=>date, :CustomerID=>custid, :ReservStatusID=>reservestat,
+                      :ProductID=>prodid, :EmployeeID=>empid, :SizeID=>size)
+    end
+  end
