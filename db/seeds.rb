@@ -32,10 +32,11 @@ EmployeeStatus.destroy_all
 # ================== Look Up Tables (First) =========================================
 # ===================================================================================
 
-  HeelList = [55, 70, 85, 100, 120, 130, 150]
+  HeelList = [0, 35, 55, 60, 70, 85, 100, 120, 130, 140, 150, 160]
   HeelList.each do |name|
     Heel.create!(Height:name)
     end
+
 
 # Employee Status and Product Status
   StatusList = ['Active', 'Inactive']
@@ -85,3 +86,17 @@ end
       Color.create!(:ColorName=>color_name, :Hexidecimal=>color_code)
     end
   end
+
+# ===================================================================================
+# ================== Non-associative Tables =========================================
+# ===================================================================================
+#   File.open("#{Rails.root}/db/datafiles/Customer.csv") do |customers|
+#     customers.read.each_line do |customers|
+#       first_name, last_name, email, phone, country, state, city, zipcode,
+#           address, custstatus = customers.chomp.split(",")
+#       Customer.create!(:FirstName=>first_name, :LastName=>last_name, :Email=>email,
+#                        :Phone=>phone, :Country=>country, :State=>state, :City=>city,
+#                        :Zipcode=>zipcode, :Address=>address, :CustomerStatusID=>custstatus)
+#     end
+#   end
+
