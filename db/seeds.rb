@@ -37,6 +37,11 @@ EmployeeStatus.destroy_all
     Heel.create!(Height:name)
     end
 
+  SizeList = [34, 34.5, 35, 35.5, 36, 36.5, 37, 37.5,
+              38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5]
+  SizeList.each do |name|
+    Size.create!(SizeName:name)
+  end
 
 # Employee Status and Product Status
   StatusList = ['Active', 'Inactive']
@@ -62,6 +67,23 @@ EmployeeStatus.destroy_all
   ReserveList.each do |name|
     ReservationStatus.create!(StatusName:name)
   end
+
+# Materials
+  File.open("#{Rails.root}/db/datafiles/Materials.csv") do |materials|
+    materials.read.each_line do |materials|
+      mat_descr = materials.chomp.split(",")
+      Material.create!(:Description=>mat_descr)
+    end
+  end
+
+#Sizes
+  # File.open("#{Rails.root}/db/datafiles/Sizes.csv") do |sizes|
+  #   sizes.read.each_line do |sizes|
+  #     size = sizes.chomp.split(",")
+  #     Size.create!(:SizeName=>size)
+  #   end
+  # end
+
 
 # State
   File.open("#{Rails.root}/db/datafiles/State.csv") do |states|
@@ -100,3 +122,10 @@ end
 #     end
 #   end
 
+  File.open("#{Rails.root}/db/datafiles/Employee.csv") do |employee|
+    employee.read.each_line do |employee|
+      first_name, last_name, phone, emptypeid, empstatid = employee.chomp.split(",")
+      Employee.create!(:FirstName=>first_name, :LastName=>last_name,
+                       :Phone=>phone, :EmployeeTypeID=>emptypeid, :EmployeeStatusID=>empstatid)
+    end
+  end
