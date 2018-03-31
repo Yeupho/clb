@@ -17,29 +17,29 @@
         <div class="row">
           <div class="col s6">
             <%= form.label 'First Name' %>
-            <%= form.text_field :FirstName, id: :employee_FirstName %>
+            <%= form.text_field :FirstName, id: :employee_FirstName , :required => true%>
           </div>
 
           <div class="col s6">
             <%= form.label 'Last Name' %>
-            <%= form.text_field :LastName, id: :employee_LastName %>
+            <%= form.text_field :LastName, id: :employee_LastName , :required => true%>
           </div>
         </div>
 
         <div class="row">
           <div class="col s6">
             <%= form.label :Phone %>
-            <%= form.text_field :Phone, id: :employee_Phone %>
+            <%= form.text_field :Phone, id: :employee_Phone , :required => true%>
           </div>
 
           <div class="col s4">
             <%= form.label 'Employee Type' %>
-            <%= form.collection_select(:EmployeeTypeID, EmployeeType.all, :id, :EmpTypeName, {prompt: "Employee Type"}, {class: "form-control"}) %>
+            <%= form.collection_select(:EmployeeTypeID, EmployeeType.all, :id, :EmpTypeName, {prompt: "Employee Type"}, {class: "form-control ", required: true}) %>
           </div>
 
           <div class="col s2">
             <%= form.label 'Employee Status' %>
-            <%= form.collection_select(:EmployeeStatusID, EmployeeStatus.all, :id, :StatusName, {prompt: "Status"}, {class: "form-control"}) %>
+            <%= form.collection_select(:EmployeeStatusID, EmployeeStatus.all, :id, :StatusName, {prompt: "Status"}, {class: "form-control", required: true}) %>
           </div>
         </div>
 

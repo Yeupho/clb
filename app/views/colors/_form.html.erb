@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label :ColorName %>
-    <%= form.text_field :ColorName, id: :color_ColorName %>
+    <%= form.text_field :ColorName, id: :color_ColorName , :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :Hexidecimal %>
-    <%= form.text_field :Hexidecimal, id: :color_Hexidecimal %>
+    <%= form.text_field :Hexidecimal, id: :color_Hexidecimal , :required => true%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

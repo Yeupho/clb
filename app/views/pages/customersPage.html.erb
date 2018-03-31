@@ -12,6 +12,7 @@
 
     <% Customer.all.each do |x|%>
 
+
       <div2>
         <div class ="cardContraints">
           <div class="row">
@@ -34,8 +35,24 @@
                   <strong>
 
                     <li2 class="waves-effect waves-pink btn green">
-                      <%= link_to x.FirstName  , customer_path(x.id)%>
+                      <%= link_to x.FirstName  , edit_customer_path(x.id)%>
                     </li2>
+                     <%=x.LastName%>
+
+                     <%=x.Email%>
+
+                    <li> <%=x.Phone%>
+                    </li>
+                    <li> <%=x.Country%>
+                    </li>
+                    <li> <%=x.State%>
+                    </li>
+                    <li> <%=x.City%>
+                    </li>
+                    <li> <%=x.Zipcode%>
+                    </li>
+                    <li> <%=x.CustomerStatusID%>
+                    </li>
                 </div>
 
               </div>

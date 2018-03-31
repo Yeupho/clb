@@ -11,47 +11,49 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= form.label :Product_Name %>
-    <%= form.text_field :Product_Name, id: :product_Product_Name %>
+    <%= form.text_field :Product_Name, id: :product_Product_Name , :required => true%>
   </div>
-
+  <div class="row">
+  <div class="col s6">
   <div class="field">
     <%= form.label :Material %>
-    <%= form.number_field :Material, id: :product_Material %>
-  </div>
+    <%= form.collection_select(:Material, Material.all, :id, :Description, {prompt: "Material"}, {class: "form-control", required: true}) %>
 
-  <div class="field">
+  </div>
+  </div>
+    <div class="col s6">
+
+    <div class="field">
     <%= form.label :Heel %>
-    <%= form.number_field :Heel, id: :product_Heel %>
+    <%= form.collection_select(:Heel, Heel.all, :id, :Height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
+
+  </div>
+    </div>
+  </div>
+  <div class="field">
+    <%= form.label :Color %>
+    <%= form.collection_select(:Color, Color.all, :id, :ColorName, {prompt: "Color"}, {class: "form-control", required: true}) %>
+
   </div>
 
-  <div class="field">
-    <%= form.label :ProductStatus %>
-    <%= form.number_field :ProductStatus, id: :product_ProductStatus %>
-  </div>
 
-  <div class="field">
-    <%= form.label :DateofArrival %>
-    <%= form.date_select :DateofArrival, id: :product_DateofArrival %>
-  </div>
+
 
   <div class="field">
     <%= form.label :SerialNumber %>
-    <%= form.text_area :SerialNumber, id: :product_SerialNumber %>
+    <%= form.text_area :SerialNumber, id: :product_SerialNumber , :required => true%>
   </div>
 
-  <div class="field">
-    <%= form.label :StockQuantity %>
-    <%= form.number_field :StockQuantity, id: :product_StockQuantity %>
-  </div>
 
   <div class="field">
     <%= form.label :ImageURL %>
-    <%= form.text_area :ImageURL, id: :product_ImageURL %>
+    <%= form.text_area :ImageURL, id: :product_ImageURL , :required => true%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>

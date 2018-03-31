@@ -11,47 +11,40 @@
     </div>
   <% end %>
 <!--This needs to be datepicker;-->
-  <div class="field">
-    <%= form.label :Date %>
-    <%= form.date_select :Date, id: :reservation_Date %>
-  </div>
+
 
   <div class="field">
     <%= form.label :CustomerID %>
-    <%= form.collection_select(:CustomerID, Customer.all, :id, :FirstName, {prompt: "Customer"}, {class: "form-control"}) %>
+    <%= form.collection_select(:CustomerID, Customer.all, :id, :FirstName, {prompt: "Customer"}, {class: "form-control", required: true}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :ReservStatusID %>
-    <%= form.number_field :ReservStatusID, id: :reservation_ReservStatusID %>
-  </div>
+
 
   <div class="field">
     <%= form.label :ProductID %>
-    <%= form.collection_select(:ProductID, Product.all, :id, :Product_Name, {prompt: "Product"}, {class: "form-control"}) %>
+    <%= form.collection_select(:ProductID, Product.all, :id, :Product_Name, {prompt: "Product"}, {class: "form-control", required: true}) %>
   </div>
 
   <div class="field">
     <%= form.label :ColorID %>
-    <%= form.number_field :ColorID, id: :reservation_ColorID %>
+    <%= form.collection_select(:ColorIDID, Color.all, :id, :ColorName, {prompt: "Color Name"}, {class: "form-control", required: true}) %>
+
   </div>
 
   <div class="field">
     <%= form.label "Heel Height (mm)" %>
-    <%= form.collection_select(:HeelID, Heel.all, :id, :Height, {prompt: "Height in mm"}, {class: "form-control"}) %>
+    <%= form.collection_select(:HeelID, Heel.all, :id, :Height, {prompt: "Height in mm"}, {class: "form-control", required: true}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :Quantity %>
-    <%= form.number_field :Quantity, id: :reservation_Quantity %>
-  </div>
+
 
   <div class="field">
     <%= form.label :EmployeeID %>
-    <%= form.number_field :EmployeeID, id: :reservation_EmployeeID %>
+    <%= form.collection_select(:EmployeeID, Employee.all, :id, :FirstName, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
+
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>
