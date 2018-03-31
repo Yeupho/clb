@@ -112,15 +112,15 @@ end
 # ===================================================================================
 # ================== Non-associative Tables =========================================
 # ===================================================================================
-#   File.open("#{Rails.root}/db/datafiles/Customer.csv") do |customers|
-#     customers.read.each_line do |customers|
-#       first_name, last_name, email, phone, country, state, city, zipcode,
-#           address, custstatus = customers.chomp.split(",")
-#       Customer.create!(:FirstName=>first_name, :LastName=>last_name, :Email=>email,
-#                        :Phone=>phone, :Country=>country, :State=>state, :City=>city,
-#                        :Zipcode=>zipcode, :Address=>address, :CustomerStatusID=>custstatus)
-#     end
-#   end
+  File.open("#{Rails.root}/db/datafiles/Customer.csv") do |customers|
+    customers.read.each_line do |customers|
+      first_name, last_name, email, phone, country, state, city, zipcode,
+          address, custstatus = customers.chomp.split(",")
+      Customer.create!(:FirstName=>first_name, :LastName=>last_name, :Email=>email,
+                       :Phone=>phone, :Country=>country, :State=>state, :City=>city,
+                       :Zipcode=>zipcode, :Address=>address, :CustomerStatusID=>custstatus)
+    end
+  end
 
   File.open("#{Rails.root}/db/datafiles/Employee.csv") do |employee|
     employee.read.each_line do |employee|
@@ -129,3 +129,12 @@ end
                        :Phone=>phone, :EmployeeTypeID=>emptypeid, :EmployeeStatusID=>empstatid)
     end
   end
+
+  File.open("#{Rails.root}/db/datafiles/Products.csv") do |products|
+    products.read.each_line do |products|
+      prodname, material, heel, color, productstat, serialnum, imageurl = products.chomp.split(",")
+      Product.create!(:Product_Name=>prodname, :Material=>material, :Heel=>heel,
+                       :ProductStatus=>productstat, :SerialNumber=>serialnum, :ImageURL=>imageurl, :ColorID=>color)
+    end
+  end
+
