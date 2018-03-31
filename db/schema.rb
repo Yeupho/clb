@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20180330233224) do
     t.string "LastName"
     t.string "Email"
     t.string "Phone"
-    t.integer "Country"
-    t.integer "State"
+    t.integer "Country", default:1
+    t.integer "State", default:43
     t.string "City"
     t.string "Zipcode"
     t.string "Address"
