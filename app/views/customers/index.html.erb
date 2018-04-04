@@ -24,16 +24,16 @@
 
         <tbody>
         <% @customers.each do |customer| %>
-            <tr>
-              <td><%= customer.FirstName %> <%= customer.LastName %></td>
-              <td><%= customer.Email %></td>
-              <td><%= customer.Phone %></td>
-              <td><%= customer.Country %></td>
-              <td><%= customer.State %></td>
-              <td><%= customer.City %></td>
-              <td><%= customer.Zipcode %></td>
-              <td><%= customer.Address %></td>
-              <td><%= customer.CustomerStatusID %></td>
+            <tr data-link="<%= customer_path(customer) %>" class="clickable-row">
+              <td><%= customer.firstname %> <%= customer.lastname %></td>
+              <td><%= customer.email %></td>
+              <td><%= customer.phone %></td>
+              <td><%= customer.country %></td>
+              <td><%= customer.state %></td>
+              <td><%= customer.city %></td>
+              <td><%= customer.zipcode %></td>
+              <td><%= customer.address %></td>
+              <td><%= customer.customerstatusid %></td>
               <td><%= link_to 'Show', customer %></td>
               <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
               <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

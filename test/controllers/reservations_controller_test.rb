@@ -17,7 +17,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reservation" do
     assert_difference('Reservation.count') do
-      post reservations_url, params: { reservation: { ColorID: @reservation.ColorID, CustomerID: @reservation.CustomerID, Date: @reservation.Date, EmployeeID: @reservation.EmployeeID, HeelID: @reservation.HeelID, ProductID: @reservation.ProductID, Quantity: @reservation.Quantity, ReservStatusID: @reservation.ReservStatusID } }
+      post reservations_url, params: { reservation: { ColorID: @reservation.colorid, CustomerID: @reservation.customerid, Date: @reservation.date, EmployeeID: @reservation.employeeid, HeelID: @reservation.heelID, ProductID: @reservation.productid, Quantity: @reservation.Quantity, ReservStatusID: @reservation.reservestatusid } }
     end
 
     assert_redirected_to reservation_url(Reservation.last)
@@ -34,7 +34,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reservation" do
-    patch reservation_url(@reservation), params: { reservation: { ColorID: @reservation.ColorID, CustomerID: @reservation.CustomerID, Date: @reservation.Date, EmployeeID: @reservation.EmployeeID, HeelID: @reservation.HeelID, ProductID: @reservation.ProductID, Quantity: @reservation.Quantity, ReservStatusID: @reservation.ReservStatusID } }
+    patch reservation_url(@reservation), params: { reservation: { ColorID: @reservation.colorid, CustomerID: @reservation.customerid, Date: @reservation.date, EmployeeID: @reservation.employeeid, HeelID: @reservation.heelID, ProductID: @reservation.productid, Quantity: @reservation.Quantity, ReservStatusID: @reservation.reservestatusid } }
     assert_redirected_to reservation_url(@reservation)
   end
 

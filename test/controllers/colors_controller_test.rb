@@ -17,7 +17,7 @@ class ColorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create color" do
     assert_difference('Color.count') do
-      post colors_url, params: { color: { ColorName: @color.ColorName, Hexidecimal: @color.Hexidecimal } }
+      post colors_url, params: { color: { ColorName: @color.colorname, Hexidecimal: @color.hexidecimal } }
     end
 
     assert_redirected_to color_url(Color.last)
@@ -34,7 +34,7 @@ class ColorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update color" do
-    patch color_url(@color), params: { color: { ColorName: @color.ColorName, Hexidecimal: @color.Hexidecimal } }
+    patch color_url(@color), params: { color: { ColorName: @color.colorname, Hexidecimal: @color.hexidecimal } }
     assert_redirected_to color_url(@color)
   end
 

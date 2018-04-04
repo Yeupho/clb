@@ -14,8 +14,8 @@
   <tbody>
     <% @states.each do |state| %>
       <tr>
-        <td><%= state.StateName %></td>
-        <td><%= state.StateAbbrev %></td>
+        <td><%= state.stateName %></td>
+        <td><%= state.stateAbbrev %></td>
         <td><%= link_to 'Show', state %></td>
         <td><%= link_to 'Edit', edit_state_path(state) %></td>
         <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
