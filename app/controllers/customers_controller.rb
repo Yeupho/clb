@@ -5,11 +5,15 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
+
+    # Author.joins("INNER JOIN posts ON posts.author_id = authors.id AND posts.published = 't'")
+    @transactions = Reservation.joins("INNER JOIN customers ON customers.id = reservations.customerid").where('customers.id = ?', params[:id]).limit(3)
   end
 
   # GET /customers/new
@@ -69,6 +73,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:FirstName, :LastName, :Email, :Phone, :Country, :State, :City, :Zipcode, :Address, :CustomerStatusID)
+      params.require(:customer).permit(:firstname, :lastname, :email, :phone, :country, :state, :city, :zipcode, :address, :customerstatusid)
     end
 end

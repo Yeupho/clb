@@ -1,54 +1,77 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Firstname:</strong>
-  <%= @customer.FirstName %>
+  <strong>Name:</strong>
+  <%= @customer.firstname %> <%= @customer.lastname %>
 </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @customer.LastName %>
-</p>
 
 <p>
   <strong>Email:</strong>
-  <%= @customer.Email %>
+  <%= @customer.email %>
 </p>
 
 <p>
   <strong>Phone:</strong>
-  <%= @customer.Phone %>
+  <%= @customer.phone %>
 </p>
 
 <p>
   <strong>Country:</strong>
-  <%= @customer.Country %>
+  <%= @customer.country %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @customer.State %>
+  <%= @customer.state %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @customer.City %>
+  <%= @customer.city %>
 </p>
 
 <p>
   <strong>Zipcode:</strong>
-  <%= @customer.Zipcode %>
+  <%= @customer.zipcode %>
 </p>
 
 <p>
   <strong>Address:</strong>
-  <%= @customer.Address %>
+  <%= @customer.address %>
 </p>
 
 <p>
   <strong>Customerstatusid:</strong>
-  <%= @customer.CustomerStatusID %>
+  <%= @customer.customerstatusid %>
 </p>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+
+
+<div class="panel panel-default shadow-pane">
+  <div class="panel-heading">
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center striped">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Product</th>
+        <th>Reserve Status</th>
+
+      </tr>
+      </thead>
+        <tbody>
+          <% @transactions.each do |t| %>
+              <tr>
+                <td><%= t.date %> </td>
+                <td><%= t.productid %> </td>
+                <td><%= t.reservestatusid %> </td>
+              </tr>
+          </tbody>
+          <% end %>
+          </table>
+  </div>
+</div>

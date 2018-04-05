@@ -2,17 +2,17 @@
 
 <p>
   <strong>Product name:</strong>
-  <%= @product.Product_Name %>
+  <%= @product.product_name %>
 </p>
 
 <p>
   <strong>Material:</strong>
-  <%= @product.Material %>
+  <%= @product.material %>
 </p>
 
 <p>
   <strong>Heel:</strong>
-  <%= @product.Heel %>
+  <%= @product.heel %>
 </p>
 
 <p>
@@ -21,18 +21,8 @@
 </p>
 
 <p>
-  <strong>Dateofarrival:</strong>
-  <%= @product.DateofArrival %>
-</p>
-
-<p>
   <strong>Serialnumber:</strong>
-  <%= @product.SerialNumber %>
-</p>
-
-<p>
-  <strong>Stockquantity:</strong>
-  <%= @product.StockQuantity %>
+  <%= @product.serialnumber %>
 </p>
 
 <p>
@@ -40,5 +30,9 @@
   <%= @product.ImageURL %>
 </p>
 
+<p>
+  <strong>Color:</strong>
+  <%= @product.colorid %>
+</p>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
