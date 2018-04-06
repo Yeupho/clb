@@ -129,15 +129,15 @@ end
     employee.read.each_line do |employee|
       first_name, last_name, phone, emptypeid, empstatid = employee.chomp.split(",")
       Employee.create!(:firstname=>first_name, :lastname=>last_name,
-                       :phone=>phone, :EmployeeTypeID=>emptypeid, :EmployeeStatusID=>empstatid)
+                       :phone=>phone, :employeetypeid=>emptypeid, :employeestatusid=>empstatid)
     end
   end
 
   File.open("#{Rails.root}/db/datafiles/Products.csv") do |products|
     products.read.each_line do |products|
       prodname, material, heel, color, productstat, serialnum, imageurl = products.chomp.split(",")
-      Product.create!(:product_name=>prodname, :material=>material, :heel=>heel,
-                       :productstatus=>productstat, :serialnumber=>serialnum, :imageurl=>imageurl, :colorid=>color)
+      Product.create!(:product_name=>prodname, :material_id=>material, :heel_id=>heel,
+                       :productstatus_id=>productstat, :serialnumber=>serialnum, :imageurl=>imageurl, :color_id=>color)
     end
   end
 

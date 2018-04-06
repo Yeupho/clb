@@ -19,10 +19,10 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.date %></td>
-        <td><%= reservation.customerid %></td>
-        <td><%= reservation.reservestatusid %></td>
-        <td><%= reservation.productid %></td>
-        <td><%= reservation.employeeid %></td>
+        <td><%= reservation.customer.firstname %></td>
+        <td><%= reservation.reservation_status.statusname %></td>
+        <td><%= reservation.product.product_name %></td>
+        <td><%= reservation.employee.firstname %></td>
         <td><%= reservation.sizeid %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
@@ -33,5 +33,5 @@
 </table>
 
 <br>
-<%= column_chart Employee.group(:EmployeeTypeID).count %>
+<%= column_chart Employee.group(:employeetypeid).count %>
 <%= link_to 'New Reservation', new_reservation_path %>
