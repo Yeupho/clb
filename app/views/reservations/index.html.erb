@@ -25,12 +25,13 @@
 
   <tbody>
     <% @reservations.each do |reservation| %>
-    <tr data-link="<%= reservations_path(reservation) %>" class="clickable-row">
-    <td><%= reservation.date %></td>
-        <td><%= reservation.customerid %></td>
-        <td><%= reservation.reservestatusid %></td>
-        <td><%= reservation.productid %></td>
-        <td><%= reservation.employeeid %></td>
+      <tr>
+        <td><%= reservation.date %></td>
+        <td><%= reservation.customer.firstname %></td>
+        <td><%= reservation.reservation_status.statusname %></td>
+        <td><%= reservation.product.product_name %></td>
+        <td><%= reservation.employee.firstname %></td>
+
         <td><%= reservation.sizeid %></td>
       <td><div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
@@ -51,5 +52,5 @@
 </div>
 
 <br>
-<%= column_chart Employee.group(:EmployeeTypeID).count %>
+<%= column_chart Employee.group(:employeetypeid).count %>
 <%= link_to 'New Reservation', new_reservation_path %>

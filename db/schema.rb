@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 20180402191303) do
     t.string "firstname"
     t.string "lastname"
     t.string "phone"
-    t.integer "EmployeeTypeID"
-    t.integer "EmployeeStatusID", default: 1
+    t.integer "employeetypeid", default: 1
+    t.integer "employeestatusid", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 20180402191303) do
 
   create_table "products", force: :cascade do |t|
     t.string "product_name"
-    t.integer "material"
-    t.integer "heel", default: 1
-    t.integer "productstatus", default: 1
+    t.integer "material_id", default: 1
+    t.integer "heel_id", default: 1
+    t.integer "productstatus_id", default: 1
     t.text "serialnumber"
-    t.text "imageurl"
-    t.integer "colorid"
+    t.text "imageurl", default: ""
+    t.integer "color_id", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -128,10 +128,9 @@ ActiveRecord::Schema.define(version: 20180402191303) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "date"
-    t.integer "customerid"
-    t.integer "reservestatusid"
-    t.integer "productid"
-    t.integer "colorid", default: 1
+    t.integer "customerid", default: 1
+    t.integer "reservestatusid", default: 1
+    t.integer "productid", default: 1
     t.integer "sizeid", default: 1
     t.integer "employeeid", default: 1
     t.datetime "created_at", null: false
