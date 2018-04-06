@@ -32,7 +32,7 @@ EmployeeStatus.destroy_all
 # ================== Look Up Tables (First) =========================================
 # ===================================================================================
 
-  User.create! :email => "joe@intra.net", :password => "password", :password_confirmation => "password"
+User.create! :email => "joe@intra.net", :password => "password", :password_confirmation => "password"
 
 
   HeelList = [0, 35, 55, 60, 70, 85, 100, 120, 130, 140, 150, 160]
@@ -120,7 +120,7 @@ end
       first_name, last_name, email, phone, country, state, city, zipcode,
           address, custstatus = customers.chomp.split(",")
       Customer.create!(:firstname=>first_name, :lastname=>last_name, :email=>email,
-                       :phone=>phone, :country=>country, :state=>state, :city=>city,
+                       :phone=>phone, :country_id=>country, :state_id=>state, :city=>city,
                        :zipcode=>zipcode, :address=>address, :customerstatusid=>custstatus)
     end
   end
@@ -142,7 +142,7 @@ end
   end
 
 # ===================================================================================
-# ================== Non-associative Tables =========================================
+# ================== associative Tables =========================================
 # ===================================================================================
   File.open("#{Rails.root}/db/datafiles/PreOrder.csv") do |reservation|
     reservation.read.each_line do |reservation|

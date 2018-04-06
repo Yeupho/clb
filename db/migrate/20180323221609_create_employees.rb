@@ -5,7 +5,7 @@ class CreateEmployees < ActiveRecord::Migration[5.1]
       t.string :lastname
       t.string :phone
       t.integer :EmployeeTypeID
-      t.integer :EmployeeStatusID
+      t.integer :EmployeeStatusID, :default => 1
 
       t.timestamps
     end

@@ -13,7 +13,15 @@ class CustomersController < ApplicationController
   def show
 
     # Author.joins("INNER JOIN posts ON posts.author_id = authors.id AND posts.published = 't'")
-    @transactions = Reservation.joins("INNER JOIN customers ON customers.id = reservations.customerid").where('customers.id = ?', params[:id]).limit(3)
+    @transactions = Reservation.select('date, products.product_name AS producta, products.imageurl AS imageurl,
+                        sizes.sizename, reservation_statuses.statusname AS resstat, customers.id')
+                        .joins('INNER JOIN products ON products.id = reservations.customerid')
+                        .joins('INNER JOIN sizes ON sizes.id = reservations.sizeid')
+                        .joins('INNER JOIN customers ON customers.id = reservations.customerid')
+                        .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
+                        .where('customers.id = ?', params[:id]).limit(100)
+
+
   end
 
   # GET /customers/new
@@ -73,6 +81,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:firstname, :lastname, :email, :phone, :country, :state, :city, :zipcode, :address, :customerstatusid)
+      params.require(:customer).permit(:firstname, :lastname, :email, :phone, :country_id, :state_id, :city, :zipcode, :address, :customerstatusid)
     end
 end
