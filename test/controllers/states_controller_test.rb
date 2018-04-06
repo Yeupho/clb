@@ -17,7 +17,7 @@ class StatesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create state" do
     assert_difference('State.count') do
-      post states_url, params: { state: { StateAbbrev: @state.StateAbbrev, StateName: @state.StateName } }
+      post states_url, params: { state: { StateAbbrev: @state.stateAbbrev, StateName: @state.stateName } }
     end
 
     assert_redirected_to state_url(State.last)
@@ -34,7 +34,7 @@ class StatesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update state" do
-    patch state_url(@state), params: { state: { StateAbbrev: @state.StateAbbrev, StateName: @state.StateName } }
+    patch state_url(@state), params: { state: { StateAbbrev: @state.stateAbbrev, StateName: @state.stateName } }
     assert_redirected_to state_url(@state)
   end
 

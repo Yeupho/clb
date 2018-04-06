@@ -18,12 +18,12 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.Date %></td>
-        <td><%= reservation.CustomerID %></td>
-        <td><%= reservation.ReservStatusID %></td>
-        <td><%= reservation.ProductID %></td>
-        <td><%= reservation.EmployeeID %></td>
-        <td><%= reservation.SizeID %></td>
+        <td><%= reservation.date %></td>
+        <td><%= reservation.customerid %></td>
+        <td><%= reservation.reservestatusid %></td>
+        <td><%= reservation.productid %></td>
+        <td><%= reservation.employeeid %></td>
+        <td><%= reservation.sizeid %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,5 +33,5 @@
 </table>
 
 <br>
-
+<%= column_chart Employee.group(:EmployeeTypeID).count %>
 <%= link_to 'New Reservation', new_reservation_path %>

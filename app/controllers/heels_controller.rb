@@ -69,6 +69,6 @@ class HeelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def heel_params
-      params.require(:heel).permit(:Height)
+      params.require(:heel).permit(:height)
     end
 end
