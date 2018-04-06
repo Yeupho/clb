@@ -7,10 +7,24 @@ class Product < ApplicationRecord
 
 
 
+  def self.procductname
+    # CustomerEvent.select("customer_events.id, event_id, customers.first_name,
+    #   customers.last_name, kids_painting, adults_painting, number_in_party")
+    #   .joins(:customer)
+    #   .order("customers.first_name ASC")
+    #
+    Reservation.select('products.product_name AS producta,materials.description AS matdisc,color.colorname AS colorn ')
+        .joins('INNER JOIN products ON products.id = reservations.customerid')
+        .joins('INNER JOIN materials ON materials.id = products.material_id')
+         .joins('INNER JOIN sizes ON sizes.id = reservations.sizeid')
+        .joins('INNER JOIN color ON color.id = products.color_id')
+        .joins('INNER JOIN customers ON customers.id = reservations.customerid')
+        .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
+        .where('reservestatusid = ?', params[:reservestatusid]).limit(100)
 
 
-  has_many :reservations
-  def full_product_name
-    ' ' + self.Product_Name + ' ' + self.Material.to_s + ' Heel:' + self.Heel.to_s
+
   end
+  has_many :reservations
+
 end

@@ -112,6 +112,13 @@ ul.hmenu li {
 //  padding: 5px;
 //  margin: 5px;
 //}
+
+td2{
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  margin: 5px;
+}
 a:hover{
   background: transparent;
   color: white;
@@ -132,6 +139,22 @@ a:visited{
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+#myTable {
+
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
 }
 #myCardDIV {
   list-style-type: none;

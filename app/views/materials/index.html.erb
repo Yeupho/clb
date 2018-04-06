@@ -5,13 +5,14 @@
     <i class="material-icons">add</i>
   </a>
 </h1>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for materials..." title="Type in a name">
 
 <div class="panel panel-default shadow-pane" style="min-width:100%">
   <div class="panel-heading">
 
   </div>
   <div class="panel-body">
-    <table class="table table-hover text-center striped">
+    <table id="myTable" class="table table-hover text-center striped">
       <thead>
       <tr>
         <th>Description</th>
@@ -62,3 +63,22 @@
 
 <br>
 
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
