@@ -69,6 +69,6 @@ class ReservationStatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_status_params
-      params.require(:reservation_status).permit(:StatusName)
+      params.require(:reservation_status).permit(:statusname)
     end
 end

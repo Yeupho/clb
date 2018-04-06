@@ -69,6 +69,6 @@ class ProductStatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_status_params
-      params.require(:product_status).permit(:Description)
+      params.require(:product_status).permit(:description)
     end
 end

@@ -24,7 +24,9 @@
           <li> <%= link_to "Customers", pages_customersPage_path,class: "navbar-brand" %></li>
           <li> <%= link_to "Materials",materials_path,class: "navbar-brand" %></li>
           <li> <%= link_to "Colors", colors_path,class: "navbar-brand" %></li>
-          <li> <%= link_to "Admin", colors_path,class: "navbar-brand" %></li>
+          <% if current_user.try(:admin?) %>
+                <li> <%= link_to "Admin", colors_path,class: "navbar-brand" %></li>
+          <% end %>
           <li> <%= link_to "Login", colors_path,class: "navbar-brand" %></li>
 
 

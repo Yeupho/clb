@@ -17,9 +17,9 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.FirstName %></td>
-        <td><%= employee.LastName %></td>
-        <td><%= employee.Phone %></td>
+        <td><%= employee.firstname %></td>
+        <td><%= employee.lastname %></td>
+        <td><%= employee.phone %></td>
         <td><%= employee.EmployeeTypeID %></td>
         <td><%= employee.EmployeeStatusID %></td>
         <td><%= link_to 'Show', employee %></td>

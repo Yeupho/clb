@@ -13,29 +13,29 @@
 
 
   <div class="field">
-    <%= form.label :Product_Name %>
-    <%= form.text_field :Product_Name, id: :product_Product_Name , :required => true%>
+    <%= form.label :product_name %>
+    <%= form.text_field :product_name, id: :product_Product_Name , :required => true%>
   </div>
   <div class="row">
   <div class="col s6">
   <div class="field">
-    <%= form.label :Material %>
-    <%= form.collection_select(:Material, Material.all, :id, :Description, {prompt: "Material"}, {class: "form-control", required: true}) %>
+    <%= form.label :material %>
+    <%= form.collection_select(:material, Material.all, :id, :description, {prompt: "Material"}, {class: "form-control", required: true}) %>
 
   </div>
   </div>
     <div class="col s6">
 
     <div class="field">
-    <%= form.label :Heel %>
-    <%= form.collection_select(:Heel, Heel.all, :id, :Height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
+    <%= form.label :heel %>
+    <%= form.collection_select(:heel, Heel.all, :id, :height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
 
   </div>
     </div>
   </div>
   <div class="field">
     <%= form.label :Color %>
-    <%= form.collection_select(:Color, Color.all, :id, :ColorName, {prompt: "Color"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:Color, Color.all, :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
 
   </div>
 
@@ -43,14 +43,14 @@
 
 
   <div class="field">
-    <%= form.label :SerialNumber %>
-    <%= form.text_area :SerialNumber, id: :product_SerialNumber , :required => true%>
+    <%= form.label :serialnumber %>
+    <%= form.text_area :serialnumber, id: :product_SerialNumber , :required => true%>
   </div>
 
 
   <div class="field">
-    <%= form.label :ImageURL %>
-    <%= form.text_area :ImageURL, id: :product_ImageURL , :required => true%>
+    <%= form.label :imageurl %>
+    <%= form.text_area :imageurl, id: :product_ImageURL , :required => true%>
   </div>
 
   <div class="actions">

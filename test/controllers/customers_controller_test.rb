@@ -17,7 +17,7 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post customers_url, params: { customer: { Address: @customer.Address, City: @customer.City, Country: @customer.Country, CustomerStatusID: @customer.CustomerStatusID, Email: @customer.Email, FirstName: @customer.FirstName, LastName: @customer.LastName, Phone: @customer.Phone, State: @customer.State, Zipcode: @customer.Zipcode } }
+      post customers_url, params: { customer: { Address: @customer.address, City: @customer.city, Country: @customer.country, CustomerStatusID: @customer.customerstatusid, Email: @customer.email, FirstName: @customer.firstname, LastName: @customer.lastname, Phone: @customer.phone, State: @customer.state, Zipcode: @customer.zipcode } }
     end
 
     assert_redirected_to customer_url(Customer.last)
@@ -34,7 +34,7 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer" do
-    patch customer_url(@customer), params: { customer: { Address: @customer.Address, City: @customer.City, Country: @customer.Country, CustomerStatusID: @customer.CustomerStatusID, Email: @customer.Email, FirstName: @customer.FirstName, LastName: @customer.LastName, Phone: @customer.Phone, State: @customer.State, Zipcode: @customer.Zipcode } }
+    patch customer_url(@customer), params: { customer: { Address: @customer.address, City: @customer.city, Country: @customer.country, CustomerStatusID: @customer.customerstatusid, Email: @customer.email, FirstName: @customer.firstname, LastName: @customer.lastname, Phone: @customer.phone, State: @customer.state, Zipcode: @customer.zipcode } }
     assert_redirected_to customer_url(@customer)
   end
 

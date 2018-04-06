@@ -2,29 +2,31 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @reservation.Date %>
+  <%= @reservation.date %>
 </p>
 
 <p>
-  <strong>Customer name:</strong>
-  <%= @reservation.CustomerID %>
+
+  <strong>Customerid:</strong>
+  <%= @reservation.customerid %>
 </p>
 
 <p>
   <strong>Reservstatusid:</strong>
-  <%= @reservation.ReservStatusID %>
+  <%= @reservation.reservestatusid %>
 </p>
 
 <p>
   <strong>Productid:</strong>
-  <%= @reservation.ProductID %>
+  <%= @reservation.productid %>
 </p>
 
 
 
 <p>
-  <strong>Employee Name:</strong>
-  <%= @reservation.EmployeeID %>
+
+  <strong>Employeeid:</strong>
+  <%= @reservation.employeeid %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |

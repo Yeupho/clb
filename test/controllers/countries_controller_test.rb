@@ -17,7 +17,7 @@ class CountriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create country" do
     assert_difference('Country.count') do
-      post countries_url, params: { country: { CountryAbbrev: @country.CountryAbbrev, CountryName: @country.CountryName } }
+      post countries_url, params: { country: { CountryAbbrev: @country.countryAbbrev, CountryName: @country.countryName } }
     end
 
     assert_redirected_to country_url(Country.last)
@@ -34,7 +34,7 @@ class CountriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update country" do
-    patch country_url(@country), params: { country: { CountryAbbrev: @country.CountryAbbrev, CountryName: @country.CountryName } }
+    patch country_url(@country), params: { country: { CountryAbbrev: @country.countryAbbrev, CountryName: @country.countryName } }
     assert_redirected_to country_url(@country)
   end
 

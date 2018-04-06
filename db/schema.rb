@@ -10,76 +10,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331022955) do
+ActiveRecord::Schema.define(version: 20180402191303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "colors", force: :cascade do |t|
-    t.string "ColorName"
-    t.string "Hexidecimal"
+    t.string "colorname"
+    t.string "hexidecimal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "CountryName"
-    t.string "CountryAbbrev"
+    t.string "countryname"
+    t.string "countryabbrev"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customer_statuses", force: :cascade do |t|
-    t.string "Description"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "FirstName"
-    t.string "LastName"
-    t.string "Email"
-    t.string "Phone"
-    t.integer "Country", default: 1
-    t.integer "State", default: 43
-    t.string "City"
-    t.string "Zipcode"
-    t.string "Address"
-    t.integer "CustomerStatusID", default: 1
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.string "phone"
+    t.integer "country"
+    t.integer "state"
+    t.string "city"
+    t.string "zipcode"
+    t.string "address"
+    t.integer "customerstatusid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employee_statuses", force: :cascade do |t|
-    t.string "StatusName"
+    t.string "statusname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employee_types", force: :cascade do |t|
-    t.string "EmpTypeName"
+    t.string "emptypename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "FirstName"
-    t.string "LastName"
-    t.string "Phone"
+    t.string "firstname"
+    t.string "lastname"
+    t.string "phone"
     t.integer "EmployeeTypeID"
-    t.integer "EmployeeStatusID", default: 1
+    t.integer "EmployeeStatusID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "heels", force: :cascade do |t|
-    t.float "Height"
+    t.float "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "materials", force: :cascade do |t|
-    t.string "Description"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -102,49 +102,50 @@ ActiveRecord::Schema.define(version: 20180331022955) do
   end
 
   create_table "product_statuses", force: :cascade do |t|
-    t.string "Description"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "Product_Name"
-    t.integer "Material"
-    t.integer "Heel"
-    t.integer "ProductStatus"
-    t.text "SerialNumber"
-    t.text "ImageURL"
+    t.string "product_name"
+    t.integer "material"
+    t.integer "heel"
+    t.integer "productstatus"
+    t.text "serialnumber"
+    t.text "imageurl"
+    t.integer "colorid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "ColorID"
   end
 
   create_table "reservation_statuses", force: :cascade do |t|
-    t.string "StatusName"
+    t.string "statusname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.date "Date"
-    t.integer "CustomerID", default: 1
-    t.integer "ReservStatusID", default: 1
-    t.integer "ProductID", default: 1
-    t.integer "EmployeeID", default: 1
+    t.date "date"
+    t.integer "customerid"
+    t.integer "reservestatusid"
+    t.integer "productid"
+    t.integer "colorid"
+    t.integer "sizeid"
+    t.integer "employeeid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "SizeID"
   end
 
   create_table "sizes", force: :cascade do |t|
-    t.float "SizeName"
+    t.float "sizename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "states", force: :cascade do |t|
-    t.string "StateName"
-    t.string "StateAbbrev"
+    t.string "statename"
+    t.string "stateabbrev"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -162,6 +163,7 @@ ActiveRecord::Schema.define(version: 20180331022955) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
