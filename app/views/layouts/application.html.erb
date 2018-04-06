@@ -20,14 +20,27 @@
           <li><a href="#"><div class="text-center"><span class="glyphicon glyphicon-barcode"></span><br>Materials</div></a></li>
           <li><a href="#"><div class="text-center"><span class="glyphicon glyphicon-barcode"></span><br>Colors</div></a></li>
           <li><a href="#"><div class="text-center"><span class="glyphicon glyphicon-signal"></span><br>Admin Dashboard</div></a></li>-->
-          <li> <%= link_to "Products", pages_productsPage_path,class: "navbar-brand"%></li>
-          <li> <%= link_to "Customers", pages_customersPage_path,class: "navbar-brand" %></li>
-          <li> <%= link_to "Materials",materials_path,class: "navbar-brand" %></li>
-          <li> <%= link_to "Colors", colors_path,class: "navbar-brand" %></li>
+
           <% if current_user.try(:admin?) %>
                 <li> <%= link_to "Admin", colors_path,class: "navbar-brand" %></li>
           <% end %>
-          <li> <%= link_to "Login", colors_path,class: "navbar-brand" %></li>
+        <% if user_signed_in? %>
+
+          <li>
+          <li> <%= link_to "Products", products_path,class: "navbar-brand"%></li>
+          <li> <%= link_to "Customers", customers_path,class: "navbar-brand" %></li>
+          <li> <%= link_to "Materials",materials_path,class: "navbar-brand" %></li>
+          <li> <%= link_to "Colors", colors_path,class: "navbar-brand" %></li>
+            <%= link_to "Logout", destroy_user_session_path,class: "navbar-brand"%>
+          </li>
+        <%else %>
+
+          <li>
+            <%= link_to "Login", new_user_session_path,class: "navbar-brand" %>
+          </li>
+        <%end %>
+
+
 
 
 

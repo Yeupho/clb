@@ -17,7 +17,7 @@
 
 <p>
   <strong>Productstatus:</strong>
-  <%= @product.ProductStatus %>
+  <%= @product.productstatus %>
 </p>
 
 
@@ -26,14 +26,11 @@
   <%= @product.serialnumber %>
 </p>
 
-<p>
-  <strong>Imageurl:</strong>
-  <%= @product.ImageURL %>
-</p>
 
 <p>
-  <strong>Color:</strong>
-  <%= @product.colorid %>
+  <strong>Imageurl:</strong>
+  <%= @product.imageurl %>
 </p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

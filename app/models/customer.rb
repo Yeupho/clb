@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   has_many :reservations
 
   def full_customer_name
-      ' ' + self.FirstName + ' ' + self.LastName
+      ' ' + self.firstname + ' ' + self.lastname
   end
 end
 
