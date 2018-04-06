@@ -1,53 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @customer.firstname %> <%= @customer.lastname %>
-</p>
+<br>
+<div class="col s12 m7">
+  <div class="row">
+    <div class="col s8 left-align">
+      <h3 class="header"><%= @customer.firstname %> <%= @customer.lastname %></h3>
+    </div>
+    <div class=" col s4 right-align">
+      <!--<h3><= @customer.customer_status.description %></h3>-->
+      <a class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">add</i></a>
+      <a class="btn-floating btn-large waves-effect waves-light brown lighten-4"><i class="material-icons">chevron_left</i></a>
+      <a class="btn-floating btn-large waves-effect waves-light light-blue lighten-3"><i class="material-icons">chevron_left</i></a>
+    </div>
+  </div>
+  <div class="card horizontal">
+    <div class="card-image">
+      <img src="https://lorempixel.com/100/190/nature/6">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s6"><strong>Email</strong><br><%= @customer.email %></div>
+          <div class="col s6"><strong>Phone</strong><br><%= @customer.phone %></div>
+        </div>
+        <div class="row">
+          <div class="col s6"><strong>Address</strong><br><%= @customer.address %></div>
+          <div class="col s6"><strong>Zipcode</strong><br><%= @customer.zipcode %></div>
+        </div>
+        <div class="row">
+          <div class="col s4"><strong>City</strong><br><%= @customer.city %></div>
+          <div class="col s4"><strong>Country</strong><br><%= @customer.country.countryname %></div>
+          <div class="col s4"><strong>State</strong><br><%= @customer.state.statename %></div>
+        </div>
+      </div>
+      <div class="card-action">
+        <%= link_to 'Edit Customer Information', edit_customer_path(@customer) %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @customer.phone %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @customer.country %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @customer.state %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @customer.city %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @customer.zipcode %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @customer.address %>
-</p>
-
-<p>
-  <strong>Customerstatusid:</strong>
-  <%= @customer.customerstatusid %>
-</p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<!--<= link_to 'Back', customers_path %>-->
 
 
 <div class="panel panel-default shadow-pane">
@@ -59,6 +53,7 @@
       <tr>
         <th>Date</th>
         <th>Product</th>
+        <th>Size (mm)</th>
         <th>Reserve Status</th>
 
       </tr>
@@ -67,11 +62,24 @@
           <% @transactions.each do |t| %>
               <tr>
                 <td><%= t.date %> </td>
-                <td><%= t.productid %> </td>
-                <td><%= t.reservestatusid %> </td>
+                <td><%= t.producta.to_s %> </td>
+                <td><%= t.sizename %> </td>
+                <td><%= t.resstat %></td>
               </tr>
           </tbody>
           <% end %>
           </table>
   </div>
+  <ul class="collection">
+    <% @transactions.each do |t| %>
+    <li class="collection-item avatar">
+      <img src="<%= t.imageurl %>" alt="" class="circle">
+      <span class="title"><%= t.producta.to_s %></span>
+      <p><%= t.date %><br>
+        <%= t.resstat %>
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <% end %>
+  </ul>
 </div>
