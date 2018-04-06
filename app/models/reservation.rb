@@ -21,6 +21,8 @@ class Reservation < ApplicationRecord
                         .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
                         .where('reservestatusid = ?', params[:reservestatusid]).limit(100)
 
+
+
   end
   # Reservation.select('date, products.product_name AS producta, products.imageurl AS imageurl, sizes.sizename, reservation_statuses.statusname AS resstat, customers.id').joins('JOIN products ON products.id = reservations.customerid').joins('JOIN sizes ON sizes.id = reservations.sizeid').joins('JOIN customers ON customers.id = reservations.customerid').joins('JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid').where('reservestatusid = ?', params[:reservestatusid]).limit(100)
   def self.countorder
