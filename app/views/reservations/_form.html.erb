@@ -14,33 +14,39 @@
 
 
   <div class="field">
-    <%= form.label "Customer Name" %>
-    <%= form.collection_select(:customerID, Customer.all, :id, :full_customer_name, {prompt: "Customer"}, {class: "form-control", required: true}) %>
+
+    <%= form.label :customerid %>
+    <%= form.collection_select(:customerid, Customer.all, :id, :firstname, {prompt: "Customer"}, {class: "form-control", required: true}) %>
+  </div>
 
   </div>
 
-
-
-  <div class="field">
-    <%= form.label "Product Name" %>
-    <%= form.collection_select(:productID, Product.all, :id, :full_product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
-  </div>
 
 
 
 
   <div class="field">
     <%= form.label "Shoe Size" %>
-    <%= form.collection_select(:sizesID, Size.all, :id, :SizeName, {prompt: "Shoe size"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:sizesID, Size.all, :id, :sizeName, {prompt: "Shoe size"}, {class: "form-control", required: true}) %>
 
+  <div class="field">
+
+    <%= form.label :productid %>
+    <%= form.collection_select(:productid, Product.all, :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
   </div>
+
+  <div class="field">
+    <%= form.label :colorid %>
+    <%= form.collection_select(:coloridID, Color.all, :id, :colorname, {prompt: "Color Name"}, {class: "form-control", required: true}) %>
+
 
 
 
   <div class="field">
-    <%= form.label "Employee Name" %>
-    <%= form.collection_select(:employeeID, Employee.all, :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
 
+
+    <%= form.label :employeeid %>
+    <%= form.collection_select(:employeeid, Employee.all, :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
 
   </div>
 
