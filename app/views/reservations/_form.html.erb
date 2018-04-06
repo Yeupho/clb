@@ -14,6 +14,7 @@
 
 
   <div class="field">
+
     <%= form.label :customerid %>
     <%= form.collection_select(:customerid, Customer.all, :id, :firstname, {prompt: "Customer"}, {class: "form-control", required: true}) %>
   </div>
@@ -21,6 +22,7 @@
 
 
   <div class="field">
+
     <%= form.label :productid %>
     <%= form.collection_select(:productid, Product.all, :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
   </div>
@@ -29,9 +31,9 @@
     <%= form.label :colorid %>
     <%= form.collection_select(:coloridID, Color.all, :id, :colorname, {prompt: "Color Name"}, {class: "form-control", required: true}) %>
 
-  </div>
 
   <div class="field">
+
     <%= form.label "Heel Height (mm)" %>
     <%= form.collection_select(:heelID, Heel.all, :id, :height, {prompt: "Height in mm"}, {class: "form-control", required: true}) %>
   </div>
@@ -39,6 +41,7 @@
 
 
   <div class="field">
+
     <%= form.label :employeeid %>
     <%= form.collection_select(:employeeid, Employee.all, :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
 
