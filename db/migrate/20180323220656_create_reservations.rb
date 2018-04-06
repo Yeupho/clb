@@ -5,9 +5,9 @@ class CreateReservations < ActiveRecord::Migration[5.1]
       t.integer :customerid
       t.integer :reservestatusid
       t.integer :productid
-      t.integer :colorid
-      t.integer :sizeid
-      t.integer :employeeid
+      t.integer :colorid, :default => 1
+      t.integer :sizeid, :default => 1
+      t.integer :employeeid, :default => 1
 
       t.timestamps
     end

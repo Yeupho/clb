@@ -49,11 +49,14 @@
   <div class="row">
     <div class="col s6">
       <%= form.label :country %>
-      <%= form.collection_select(:country_id, Country.all, :id, :countryname, {prompt: "Country"}, {class: "form-control", required: true}) %>
+      <%= form.collection_select(:country_id, Country.all, :id, :countryname, {:prompt => 'Select Country'}, {class: "form-control", required: true}) %>
+
+      <!--<= form.collection_select(:country_id, Country.all, :id, :countryname, {prompt: "Country", :selected => @customer.country.to_s}, {class: "form-control", required: true}) %>-->
     </div>
     <div class="col s6">
       <%= form.label :state %>
-      <%= form.collection_select(:state_id, State.all, :id, :statename, {prompt: "State/Province"}, {class: "form-control",  required: true})%>
+      <%= form.collection_select(:state_id, State.all, :id, :statename, {prompt: "State/Province", :selected => @customer.state.to_s}, {class: "form-control",  required: true})%>
+      <!--< form.collection_select :state_id, State.all , :id, :statename, {:prompt => 'Yea', :selected => @customer.state.to_i} %>-->
     </div>
   </div>
 
@@ -68,6 +71,7 @@
       <%= form.text_field :zipcode, id: :customer_Zipcode , :required => true%>
     </div>
   </div>
+        <!--f.collection_select :company_status_id, ListCache.company_statuses, :id, :name, {:prompt => @select_value, :selected => @company.company_status_id.to_i}-->
 
 
 

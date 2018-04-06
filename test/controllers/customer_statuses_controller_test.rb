@@ -17,7 +17,7 @@ class CustomerStatusesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create customer_status" do
     assert_difference('CustomerStatus.count') do
-      post customer_statuses_url, params: { customer_status: { Description: @customer_status.Description } }
+      post customer_statuses_url, params: { customer_status: { description: @customer_status.Description } }
     end
 
     assert_redirected_to customer_status_url(CustomerStatus.last)
@@ -34,7 +34,7 @@ class CustomerStatusesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer_status" do
-    patch customer_status_url(@customer_status), params: { customer_status: { Description: @customer_status.Description } }
+    patch customer_status_url(@customer_status), params: { customer_status: { description: @customer_status.Description } }
     assert_redirected_to customer_status_url(@customer_status)
   end
 
