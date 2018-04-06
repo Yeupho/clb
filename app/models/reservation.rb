@@ -6,6 +6,7 @@ class Reservation < ApplicationRecord
   belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
   belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
 
+
   def self.reservationsactive
       # CustomerEvent.select("customer_events.id, event_id, customers.first_name,
       #   customers.last_name, kids_painting, adults_painting, number_in_party")

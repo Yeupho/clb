@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
+
   devise_for :models
   resources :sizes
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 
+
+
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   #Root Index
-  root 'home#index'
+  #root 'home#index'
+  root 'reservations#index'
 
 
   #admin
