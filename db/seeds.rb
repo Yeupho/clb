@@ -32,7 +32,8 @@ EmployeeStatus.destroy_all
 # ================== Look Up Tables (First) =========================================
 # ===================================================================================
 
-User.create! :email => "joe@intra.net", :password => "password", :password_confirmation => "password"
+User.create! :email => "joe@intra.net", :password => "password", :password_confirmation => "password", :admin => false
+User.create! :email => "bob@intra.net", :password => "password", :password_confirmation => "password", :admin => true
 
 
   HeelList = [0, 35, 55, 60, 70, 85, 100, 120, 130, 140, 150, 160]

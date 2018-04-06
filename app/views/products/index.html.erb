@@ -6,6 +6,16 @@
     <i class="material-icons">add</i>
   </a>
 </h1>
+  <% @products.each do |product| %>
+  <div data-link="<%= product_path(product) %>" class="clickable-row" style="float: left">
+    <div class="card <%= product.color.hexidecimal %>" style="background-color: <%= product.color.hexidecimal %>;max-width: 260px; margin-right:20px">
+      <%= image_tag('defaultshoe.jpg', :size => "260x200")%>
+      <div class="card-action">
+        <a href="#"><%= product.product_name %> | <%= product.color.colorname %></a>
+      </div>
+    </div>
+  </div>
+  <% end %>
 
 <table>
   <thead>
@@ -28,7 +38,7 @@
         <td><%= product.material.description %></td>
         <td><%= product.heel.height %></td>
         <td><%= product.serialnumber %></td>
-        <td><%= product.color.colorname %></td>
+        <td><%= product.color.hexidecimal %></td>
 
 
         <td><%= link_to 'Show', product %></td>
