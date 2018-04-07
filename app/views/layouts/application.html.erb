@@ -11,7 +11,7 @@
   <body>
   <div>
     <nav class="navbar navbar-inverse navbar-fixed-top teal">
-      <%= link_to "Home", root_url,class: "navbar-brand" %>
+      <%= link_to "Home", root_url,class: "white-text  navbar-brand" %>
 
       <ul id="nav-moblie" class="right hide-on-med-and-down">
           <!--<li><a href="#"><div class="text-center"><span class="glyphicon glyphicon glyphicon-user"></span><br>Customers</div></a></li>
@@ -21,22 +21,25 @@
           <li><a href="#"><div class="text-center"><span class="glyphicon glyphicon-barcode"></span><br>Colors</div></a></li>
           <li><a href="#"><div class="text-center"><span class="glyphicon glyphicon-signal"></span><br>Admin Dashboard</div></a></li>-->
 
-          <% if current_user.try(:admin?) %>
-                <li> <%= link_to "Admin", colors_path,class: "navbar-brand" %></li>
-          <% end %>
-        <% if user_signed_in? %>
 
-          <li>
-          <li> <%= link_to "Products", products_path,class: "navbar-brand"%></li>
-          <li> <%= link_to "Customers", customers_path,class: "navbar-brand" %></li>
-          <li> <%= link_to "Materials",materials_path,class: "navbar-brand" %></li>
-          <li> <%= link_to "Colors", colors_path,class: "navbar-brand" %></li>
-            <%= link_to "Logout", destroy_user_session_path,class: "navbar-brand"%>
-          </li>
+        <% if user_signed_in? %>
+          <% if current_user.try(:admin?) %>
+            <li> <%= link_to "Materials",materials_path,class: "white-text navbar-brand" %></li>
+            <li> <%= link_to "Colors", colors_path,class: "white-text navbar-brand" %></li>
+            <li> <%= link_to "Admin", admin_path,class: "white-text navbar-brand" %></li>
+            <li> <%= link_to "Reports", colors_path,class: "white-text navbar-brand" %></li>
+            <%end%>
+
+
+           <li> <%= link_to "Products", products_path,class: " white-text navbar-brand"%></li>
+          <li> <%= link_to "Customers", customers_path,class: " white-text navbar-brand" %></li>
+
+          <li> <%= link_to "About", pages_about_path,class: "white-text navbar-brand" %></li>
+          <li><%= link_to "Logout", destroy_user_session_path,class: "white-text navbar-brand"%></li>
         <%else %>
 
           <li>
-            <%= link_to "Login", new_user_session_path,class: "navbar-brand" %>
+            <%= link_to "Login", new_user_session_path,class: "white-text navbar-brand" %>
           </li>
         <%end %>
 
