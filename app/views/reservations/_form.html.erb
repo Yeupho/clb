@@ -32,7 +32,9 @@
   <div class="field">
 
     <%= form.label :productid %>
-    <%= form.collection_select(:productid, Product.all, :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
+    <%= print :productid  %>
+    <%= form.hidden_field :productid %>
+    <!--<= form.collection_select(:productid, Product.all, :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>-->
   </div>
 
 
