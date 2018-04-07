@@ -30,8 +30,9 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :index, status: :created, location: @reservation }
+
+        format.html { redirect_to root_path, notice: 'Reservation was successfully created.' }
+        format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
