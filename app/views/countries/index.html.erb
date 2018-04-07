@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 
 <h1>Countries</h1>
-
+<%= geo_chart Customer.group(:state).count %>
 <table>
   <thead>
     <tr>
@@ -14,8 +15,8 @@
   <tbody>
     <% @countries.each do |country| %>
       <tr>
-        <td><%= country.countryName %></td>
-        <td><%= country.countryAbbrev %></td>
+        <td><%= country.countryname %></td>
+        <td><%= country.countryabbrev %></td>
         <td><%= link_to 'Show', country %></td>
         <td><%= link_to 'Edit', edit_country_path(country) %></td>
         <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
