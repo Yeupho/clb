@@ -32,30 +32,26 @@
 
   <div class="field">
 
-    <%= form.label :productid %>
-    <%= print :productid  %>
     <%= form.hidden_field :productid %>
     <!--<= form.collection_select(:productid, Product.all, :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>-->
   </div>
-
-
+    <div class="field">
     <%= form.label :"Employee" %>
     <%= form.collection_select(:employeeid, Employee.order(:firstname), :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
 
   </div>
 
-  <div class="field">
+  <!--<div class="field">-->
 
-    <%= form.label :"Product" %>
-    <%= form.collection_select(:productid, Product.order(:product_name), :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
-  </div>
+    <!--< form.label :"Product" %>-->
+    <!--< form.collection_select(:productid, Product.order(:product_name), :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>-->
+  <!--</div>-->
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary'%>
+    </div>
 
 
 
 
 
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary'%>
-  </div>
 <% end %>
-</div>

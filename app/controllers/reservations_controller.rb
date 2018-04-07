@@ -30,7 +30,9 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        # format.html { redirect_to '/admin#locations_tab', notice: 'Country was successfully created.' }
+
+        format.html { redirect_to root_path, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }
