@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
+
     @reservations = Reservation.order(date: :desc).order(created_at: :desc)
   end
 
@@ -14,7 +15,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
+    # @widget = Widget.new(:foo => params[:foo])
+    @reservation = Reservation.new(:productid => params[:productid])
   end
 
   # GET /reservations/1/edit

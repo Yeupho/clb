@@ -7,12 +7,14 @@
   </a>
 </h1>
   <% @products.each do |product| %>
-  <div data-link="<%= product_path(product) %>" class="clickable-row" style="float: left">
+  <div data-link="<%= product_path(product) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
     <div class="card <%= product.color.hexidecimal %>" style="background-color: <%= product.color.hexidecimal %>;max-width: 260px; margin-right:20px">
       <%= image_tag('defaultshoe.jpg', :size => "260x200")%>
-      <div class="card-action">
-        <a href="#"><%= product.product_name %> | <%= product.color.colorname %></a>
-      </div>
+      <p style="padding-left:10px; padding-top:10px; color:#ffb209"><%= product.product_name %> | </p>
+      <p style="padding-left:10px; padding-bottom:10px; color:#ffb209"><%= product.color.colorname %></p>
+      <!--<div class="card-action">-->
+        <!--<p style="font-size:8px"></p>-->
+      <!--</div>-->
     </div>
   </div>
   <% end %>
@@ -50,5 +52,9 @@
 </table>
 
 <br>
-
+<div class="panel panel-body" style="padding:0px;padding-left:10px;">
+  <%= pie_chart Product.mostpopprod, library: {legend: {position: "right"}},
+                colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
+                height:"300px",width:"540px",donut:true,download:true %>
+</div>
 <%= link_to 'New Product', new_product_path %>
