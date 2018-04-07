@@ -15,8 +15,8 @@
 
   <div class="field">
 
-    <%= form.label :customerid %>
-    <%= form.collection_select(:customerid, Customer.all, :id, :full_customer_name, {prompt: "Customer"}, {class: "form-control", required: true}) %>
+    <%= form.label :"Customer" %>
+    <%= form.collection_select(:customerid, Customer.order(:firstname), :id, :full_customer_name, {prompt: "Customer"}, {class: "form-control", required: true}) %>
   </div>
 
 
@@ -29,6 +29,7 @@
     <%= form.collection_select(:sizesID, Size.all, :id, :sizename, {prompt: "Shoe size"}, {class: "form-control", required: true}) %>
 
   </div>
+
   <div class="field">
 
     <%= form.label :productid %>
@@ -38,14 +39,20 @@
   </div>
 
 
+    <%= form.label :"Employee" %>
+    <%= form.collection_select(:employeeid, Employee.order(:firstname), :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
+
+  </div>
 
   <div class="field">
 
-
-    <%= form.label :employeeid %>
-    <%= form.collection_select(:employeeid, Employee.all, :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
-
+    <%= form.label :"Product" %>
+    <%= form.collection_select(:productid, Product.order(:product_name), :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
   </div>
+
+
+
+
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary'%>
