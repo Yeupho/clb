@@ -10,6 +10,7 @@ class Reservation < ApplicationRecord
   def set_foo_to_now
     self.date = DateTime.now
   end
+
   def self.reservationsactive
       # CustomerEvent.select("customer_events.id, event_id, customers.first_name,
       #   customers.last_name, kids_painting, adults_painting, number_in_party")
