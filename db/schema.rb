@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20180402191303) do
     t.integer "productid", default: 1
     t.integer "sizeid", default: 1
     t.integer "employeeid", default: 1
-    t.datetime "created_at", null: false
+    t.datetime "created_at",null:false
     t.datetime "updated_at", null: false
   end
 
