@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
 
-    @reservations = Reservation.order(date: :desc).order(created_at: :desc)
+    @reservations = Reservation.order(:reservestatusid).order(date: :desc).order(created_at: :desc)
   end
 
   # GET /reservations/1
