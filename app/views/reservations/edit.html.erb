@@ -1,6 +1,29 @@
-<h1>Editing Reservation</h1>
+<%= form_with(model: @reservation, local: true) do |form| %>
 
-<%= render 'form', reservation: @reservation %>
 
-<%= link_to 'Show', @reservation %> |
-<%= link_to 'Back', reservations_path %>
+  <h1>Editing Reservation</h1>
+  <div class="field">
+    <%= form.label :"Status" %>
+    <%= form.collection_select(:reservestatusid, ReservationStatus.all, :id, :statusname, {prompt: "Status"}, {class: "form-control", required: true}) %>
+
+  </div>
+  <div class="field">
+    <%= form.label "Shoe Size" %>
+    <%= form.collection_select(:sizeid, Size.all, :id, :sizename, {prompt: "Shoe size"}, {class: "form-control", required: true}) %>
+
+  </div>
+  <div class="field">
+    <%= form.label :"Employee" %>
+    <%= form.collection_select(:employeeid, Employee.order(:firstname), :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
+
+  </div>
+  <div class="field">
+
+  <%= form.label :"Product" %>
+
+  <%= form.collection_select(:productid, Product.order(:product_name), :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
+  </div>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary'%>
+  </div>
+<% end %>

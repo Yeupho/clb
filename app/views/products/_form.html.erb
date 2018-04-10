@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= form.label :Color %>
-    <%= form.collection_select(:Color, Color.order(:colorname), :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:color, Color.order(:colorname), :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
 
   </div>
 
