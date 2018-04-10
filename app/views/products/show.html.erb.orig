@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @product.product_name %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @product.material %>
+</p>
+
+<p>
+  <strong>Heel:</strong>
+  <%= @product.heel %>
+</p>
+
+<p>
+  <strong>Productstatus:</strong>
+  <%= @product.ProductStatus %>
+</p>
+
+<<<<<<< HEAD
+
+<p>
+  <strong>Serialnumber:</strong>
+  <%= @product.SerialNumber %>
+</p>
+
+=======
+<p>
+  <strong>Serialnumber:</strong>
+  <%= @product.serialnumber %>
+</p>
+>>>>>>> e3c1aee98ebcef67a28b87f34e4ae1e7824cf7e5
+
+<p>
+  <strong>Imageurl:</strong>
+  <%= @product.ImageURL %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @product.colorid %>
+</p>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

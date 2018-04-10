@@ -1,0 +1,50 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--This needs to be datepicker;-->
+
+
+  <div class="field">
+    <%= form.label :CustomerID %>
+    <%= form.collection_select(:CustomerID, Customer.all, :id, :FirstName, {prompt: "Customer"}, {class: "form-control", required: true}) %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :ProductID %>
+    <%= form.collection_select(:ProductID, Product.all, :id, :Product_Name, {prompt: "Product"}, {class: "form-control", required: true}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ColorID %>
+    <%= form.collection_select(:ColorIDID, Color.all, :id, :ColorName, {prompt: "Color Name"}, {class: "form-control", required: true}) %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label "Heel Height (mm)" %>
+    <%= form.collection_select(:HeelID, Heel.all, :id, :Height, {prompt: "Height in mm"}, {class: "form-control", required: true}) %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :EmployeeID %>
+    <%= form.collection_select(:EmployeeID, Employee.all, :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary'%>
+  </div>
+<% end %>
