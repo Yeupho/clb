@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
+
     @customers = Customer.order(:firstname)
 
   end
@@ -13,15 +14,23 @@ class CustomersController < ApplicationController
   def show
 
     # Author.joins("INNER JOIN posts ON posts.author_id = authors.id AND posts.published = 't'")
-    @transactions = Reservation.select('date, products.product_name AS producta, products.imageurl AS imageurl,
-                        sizes.sizename, reservation_statuses.statusname AS resstat, customers.id')
-                        .joins('INNER JOIN products ON products.id = reservations.customerid')
+    @transactions = Reservation.select('customers.id AS id, date, products.product_name AS producta, products.imageurl AS imageurl,
+                        sizes.sizename, reservation_statuses.statusname AS resstat, products.serialnumber as num, customers.id')
+                        .joins('INNER JOIN products ON products.id = reservations.productid')
                         .joins('INNER JOIN sizes ON sizes.id = reservations.sizeid')
                         .joins('INNER JOIN customers ON customers.id = reservations.customerid')
                         .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
-                        .where('customers.id = ?', params[:id]).limit(100)
+                        .where('customers.id = ?', params[:id]).where('reservations.reservestatusid = 1').limit(100)
+    @transactions2 = Reservation.select('customers.id AS id, date, products.product_name AS producta, products.imageurl AS imageurl,
+                        sizes.sizename, reservation_statuses.statusname AS resstat, products.serialnumber as num, customers.id')
+                        .joins('INNER JOIN products ON products.id = reservations.productid')
+                        .joins('INNER JOIN sizes ON sizes.id = reservations.sizeid')
+                        .joins('INNER JOIN customers ON customers.id = reservations.customerid')
+                        .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
+                        .where('customers.id = ?', params[:id]).where('reservations.reservestatusid = 2').limit(100)
+    @transactions3 = Customer.transact.where('customers.id = ?', params[:id]).where('reservations.reservestatusid = 2').limit(100)
 
-
+    Reservation.select('customers.id AS id, date, products.product_name AS producta, products.imageurl AS imageurl,sizes.sizename, reservation_statuses.statusname AS resstat, products.serialnumber AS num, customers.id').joins('INNER JOIN products ON products.id = reservations.productid').joins('INNER JOIN sizes ON sizes.id = reservations.sizeid').joins('INNER JOIN customers ON customers.id = reservations.customerid').joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid').where('customers.id = 4').where('reservations.reservestatusid = 1').limit(100)
   end
 
   # GET /customers/new

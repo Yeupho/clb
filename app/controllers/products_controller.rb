@@ -5,12 +5,15 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @customer = request.GET.to_s
 
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
+    @customer = request.GET.to_s
   end
 
   # GET /products/new
@@ -18,8 +21,14 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def search
+    @product = Product.find_by_imageurl params[:search_imageurl]
+    render action: 'show'
+  end
+
   # GET /products/1/edit
   def edit
+
   end
 
   # POST /products

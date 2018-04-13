@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="card col s2 ">
+    <div class="card-content">
+      <div class="text-center">
+        <strong>Pre-Orders Today:</strong>
+        <h3><%= Home.today_count %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="card col s2 ">
+    <div class="card-content">
+      <div class="text-center">
+        <strong>Awaiting Pickup</strong>
+        <h3><%= Home.today_countupdate %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="card col s2 ">
+    <div class="card-content">
+      <div class="text-center">
+        <strong>Completed Orders:</strong>
+        <h3><%= Home.today_countupdate %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="col s3"><p></p></div>
+  <div class="col s3">
+    <%= link_to 'Create Customer', new_customer_path, :class => 'btn btn-primary', :style => 'background-color: #ef5350;color: white; min-width:200px' %>
+    <%= link_to 'Existing Customer', customers_path, :class => 'btn btn-info', :style => 'background-color: #ef5350;color: white; min-width:200px'  %>
+    <%= link_to 'View Pre-Orders', reservations_path, :class => 'btn btn-primary', :style => 'background-color: #ef5350; color: white; min-width:200px' %>
+
+  </div>
+
+</div>
+
+<div id="calendar"></div>
+
+
+<div class="container">
+
+
+  <h1>Pre-Orders
+    <a href="http://localhost:3000/reservations/new" class=" resvervation-add btn-floating btn-large waves-effect waves-light red" >
+      <i class="material-icons">add</i>
+    </a>
+
+
+
+  </h1>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for reservations..." title="Type in a name">
+
+</div>
+
+
+<ul class="collapsible expandable">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+</ul>
+
+<script>
+    $(document).ready(function(){
+        $('#calendar').fullCalendar({
+            header: {
+                center: 'title',
+                right: 'month,listWeek,listDay',
+                left: 'prev,next today'
+            },
+            height: 900,
+            events:
+                [
+                    <% @calendar.each do |calendar| %>
+                    {
+                        title  : "<%= calendar.name %> | <%= calendar.productname %>",
+                        start  : "<%= calendar.date %>",
+                        url    : "<%= reservation_path(calendar.id, format: :html) %>",
+                    },
+                    <% end %>
+                ],
+            eventTextColor: '#ffffff',
+            eventBackgroundColor: '#686870',
+            eventLimit: 5,
+            editable: true,
+            displayEventTime: false,
+        });
+    });
+</script>
+
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, ul2,p2,x;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li2');
+        //ul2 = document.getElementById('myCardDIV');
+
+        ul2 = ul.getElementsByTagName('div2');
+        p2 = ul.getElementsByTagName('p');
+
+
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if ((a.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+                li[i].style.display = "";
+                ul2[i].style.display ="";
+
+
+            } else {
+                li[i].style.display = "none";
+                ul2[i].style.display ="none";
+
+
+
+            }
+        }
+
+        var elem = document.querySelector('.collapsible.expandable');
+        var instance = M.Collapsible.init(elem, {
+            accordion: false
+        });
+
+    }
+</script>

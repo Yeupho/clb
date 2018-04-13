@@ -6,9 +6,13 @@ class Reservation < ApplicationRecord
   belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
   belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
 
-  before_create :set_foo_to_now
-  def set_foo_to_now
-    self.date = DateTime.now
+  # before_create :set_foo_to_now
+  # def set_foo_to_now
+  #   self.date = DateTime.now
+  # end
+
+  before_validation on: [:create, :update] do
+    self.date = Date.today
   end
 
   def self.reservationsactive
@@ -21,7 +25,7 @@ class Reservation < ApplicationRecord
                         sizes.sizename, reservation_statuses.statusname AS resstat, customers.id')
                         .joins('INNER JOIN products ON products.id = reservations.customerid')
                         .joins('INNER JOIN sizes ON sizes.id = reservations.sizeid')
-                        .joins('INNER JOIN customers ON customers.id = reservations.customerid')
+                        .joins('INNER JOIN customers ON cfustomers.id = reservations.customerid')
                         .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
                         .where('reservestatusid = ?', params[:reservestatusid]).limit(100)
 
@@ -30,6 +34,25 @@ class Reservation < ApplicationRecord
   end
   # Reservation.select('date, products.product_name AS producta, products.imageurl AS imageurl, sizes.sizename, reservation_statuses.statusname AS resstat, customers.id').joins('JOIN products ON products.id = reservations.customerid').joins('JOIN sizes ON sizes.id = reservations.sizeid').joins('JOIN customers ON customers.id = reservations.customerid').joins('JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid').where('reservestatusid = ?', params[:reservestatusid]).limit(100)
   def self.countorder
-    Reservations.group_by_day(:date, format: '%a').count
+    Reservation.group_by_day(:date, format: '%a').count
   end
+
+  def self.countweeks
+    Reservation.group_by_day_of_week(:date, format: '%a').count
+  end
+
+  scope :search_query, -> {Reservation.all}
+  scope :with_create_at, -> {where(:created_at <= Date.today)}
+
+  # def self.filterrific
+  #   # filterrific(
+  #   #     default_filter_params: { sorted_by: 'created_at_desc' },
+  #   #     available_filters: [
+  #   #         :sorted_by,
+  #   #         :search_query,
+  #   #         :with_created_at_gte
+  #   #     ]
+  #   # )
+  # end
+
 end

@@ -29,10 +29,10 @@
             <li> <%= link_to "Colors", colors_path,class: "white-text navbar-brand" %></li>
             <li> <%= link_to "Admin", admin_path,class: "white-text navbar-brand" %></li>
             <li> <%= link_to "Reports", colors_path,class: "white-text navbar-brand" %></li>
-            <%end%>
+          <%end%>
 
-
-           <li> <%= link_to "Products", products_path,class: " white-text navbar-brand"%></li>
+          <li> <%= link_to "Pre-Orders", reservations_path,class: " white-text navbar-brand"%></li>
+          <li> <%= link_to "Products", products_path,class: " white-text navbar-brand"%></li>
           <li> <%= link_to "Customers", customers_path,class: " white-text navbar-brand" %></li>
 
           <li> <%= link_to "About", pages_about_path,class: "white-text navbar-brand" %></li>
@@ -56,6 +56,42 @@
   <div class="container2">
 
       <%= yield %>
+  </div>
+
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Christian Louboutin</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Site Map</h5>
+          <div class="row">
+            <ul class="col s6">
+              <li><a class="grey-text text-lighten-3" href="#!">Pre-Orders</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Customers</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Products</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+            </ul>
+            <ul class="col s6">
+              <li><a class="grey-text text-lighten-3" href="#!">Reports</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Materials</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Colors</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Admin</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Christian Louboutin | A-Team
+        <a class="grey-text text-lighten-4 right" href="#!">Logout</a>
+      </div>
+    </div>
+  </footer>
+
   </body>
 </html>

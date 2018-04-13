@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20180402191303) do
   enable_extension "plpgsql"
 
   create_table "colors", force: :cascade do |t|
-    t.string "colorname"
-    t.string "hexidecimal"
+    t.string "colorname", default: "Black"
+    t.string "hexidecimal", default: "#000000"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 20180402191303) do
     t.integer "state_id", default: 43
     t.string "city", default: "Houston"
     t.string "zipcode", default: "77000"
-    t.string "address"
-    t.string "Westheimer"
+    t.string "address", default: "Westheimer"
     t.integer "customerstatusid", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -113,7 +112,7 @@ ActiveRecord::Schema.define(version: 20180402191303) do
     t.integer "material_id", default: 1
     t.integer "heel_id", default: 1
     t.integer "productstatus_id", default: 1
-    t.text "serialnumber"
+    t.text "serialnumber", default: "ADC-ebae-5444"
     t.text "imageurl", default: ""
     t.integer "color_id", default: 1
     t.datetime "created_at", null: false
@@ -133,7 +132,7 @@ ActiveRecord::Schema.define(version: 20180402191303) do
     t.integer "productid", default: 1
     t.integer "sizeid", default: 1
     t.integer "employeeid", default: 1
-    t.datetime "created_at",null:false
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
@@ -144,8 +143,8 @@ ActiveRecord::Schema.define(version: 20180402191303) do
   end
 
   create_table "states", force: :cascade do |t|
-    t.string "statename"
-    t.string "stateabbrev"
+    t.string "statename", default: "UNKNOWN"
+    t.string "stateabbrev", default: "UNKNOWN"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

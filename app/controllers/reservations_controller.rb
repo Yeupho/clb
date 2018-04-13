@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
 
-    @reservations = Reservation.order(:reservestatusid).order(date: :desc).order(created_at: :desc)
+    @reservations = Reservation.order(:reservestatusid).order(created_at: :desc).order(date: :desc)
   end
 
   # GET /reservations/1
@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     # @widget = Widget.new(:foo => params[:foo])
-    @reservation = Reservation.new(:productid => params[:productid])
+    @reservation = Reservation.new(:productid => params[:productid], :customerid => params[:customerid])
   end
 
   # GET /reservations/1/edit
@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
 
-        format.html { redirect_to root_path, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to reservations_path, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ReservationsController < ApplicationController
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
-        format.html { redirect_to root_path, notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to reservations_path, notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
       else
         format.html { render :edit }

@@ -27,9 +27,12 @@ class Product < ApplicationRecord
   end
 
   def self.mostpopprod
-    Reservation.where(:date => 1.months.ago .. Time.now).joins(:product).group(:product_name).count(:product_name)
+    Reservation.where(:date => 1.months.ago .. Time.now)
+        .joins(:product).group(:product_name).count(:product_name)
     # Reservation.where(:date => 1.months.ago .. Time.now).joins(:products).count(:product_name)
   end
+
+
   has_many :reservations
 
 end

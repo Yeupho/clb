@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :models
   resources :sizes
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/adminthing', as: 'rails_admin'
 
 
 
@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   #Root Index
-  #root 'home#index'
-  root 'reservations#index'
+  root 'homes#index'
+  #root 'reservations#index'
+
+  get 'search' => 'products#show'
 
 
   #admin
@@ -38,15 +40,12 @@ Rails.application.routes.draw do
 
 
 
+
   get 'pages/about'
-
   get 'pages/productsPage'
-
   get 'pages/customersPage'
-
   get 'pages/colorsPage'
-
   get 'pages/materialsPage'
-
+  get 'pages/reportsPage'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

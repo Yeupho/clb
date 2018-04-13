@@ -13,11 +13,15 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-datepicker
+ *= require fullcalendar
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
 @import "styles";
 @import "materialize";
+@import "fullcalendar";
 //@import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
 $secondary-color: color("yellow", "base") !default;
@@ -173,5 +177,10 @@ a:visited{
 .panel > .panel-heading {
   background-image: none;
   background: #009688;
+  color: white;
 
+}
+.page-footer {
+  background-image: none;
+  background: #009688;
 }
