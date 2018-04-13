@@ -9,7 +9,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.integer :state_id, :default => 43
       t.string :city, :default => 'Houston'
       t.string :zipcode, :default => 77000
-      t.string :address, 'Westheimer'
+      t.string :address, :default => 'Westheimer'
       t.integer :customerstatusid, :default => 1
 
       t.timestamps

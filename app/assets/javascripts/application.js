@@ -14,9 +14,13 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
-//= require bootstrap-sprockets
+//  bootstrap-sprockets
 //= require Chart.bundle
 //= require chartkick
+//= require moment
+//= require fullcalendar
+
+$('#calendar').fullCalendar({});
 
 
 jQuery(function($) {
@@ -29,5 +33,9 @@ jQuery(function($) {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    $(document).ready(function(){
+        $(".dropdown-trigger").dropdown({ hover: false });
+    });
 });
 

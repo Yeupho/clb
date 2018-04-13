@@ -11,8 +11,7 @@
   <div class="panel-heading">
 
   </div>
-  <%= pie_chart Material.countmat, legend 'bottom',
-                colors:["#2956A8","#DE4276","#F5D857","#ECECD7","#4D4D4C"], donut: true %>
+  <%= pie_chart Material.countmat, title: 'Most Popular Materials', legend: 'bottom', colors:["#2956A8","#DE4276","#F5D857","#ECECD7","#4D4D4C"], donut: true %>
   <div class="panel-body">
     <table id="myTable" class="table table-hover text-center striped">
       <thead>

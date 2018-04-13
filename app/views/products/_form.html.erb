@@ -22,20 +22,21 @@
     <%= form.label :material %>
     <%= form.collection_select(:materialid, Material.order(:description), :id, :description, {prompt: "Material"}, {class: "form-control", required: true}) %>
 
+
   </div>
   </div>
     <div class="col s6">
 
     <div class="field">
     <%= form.label :heel %>
-    <%= form.collection_select(:heel, Heel.all, :id, :height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:heel_id, Heel.all, :id, :height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
 
   </div>
     </div>
   </div>
   <div class="field">
     <%= form.label :Color %>
-    <%= form.collection_select(:color, Color.order(:colorname), :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:color_id, Color.order(:colorname), :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
 
   </div>
 

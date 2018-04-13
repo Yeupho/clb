@@ -1,33 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @reservation.date %>
-</p>
-
-<p>
-
-  <strong>Customerid:</strong>
-  <%= @reservation.customerid %>
-
-</p>
-
-<p>
-  <strong>Reservstatusid:</strong>
-  <%= @reservation.reservestatusid %>
-</p>
-
-<p>
-  <strong>Productid:</strong>
-  <%= @reservation.productid %>
-</p>
-
-
-
-<p>
-  <strong>Employeeid:</strong>
-  <%= @reservation.employeeid %>
-</p>
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<div>
+  <%= render 'reservations/show/show'%>
+</div>

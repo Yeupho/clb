@@ -3,10 +3,12 @@
 <p>
 
 </p>
+<%= jank = @customer.split(/[^\d]/).join%>
 <div class=" ">
   <h2><%= @product.product_name %> </h2>
   <div class="row">
-    <div class="col s6"><img src="<%= @product.imageurl %>" width="50%" height="50%"></div>
+    <div class="col s6"><img src="<%= @product.imageurl %>" width="70%" height="70%">
+    </div>
     <div class="col s6">
       <p>
         <strong>Material:</strong>
@@ -30,9 +32,12 @@
       </p>
       <strong>Description:</strong>
       <p>adjustable; adorable; anatomic; anatomically designed; anti-fatigue; antimicrobial ; athletic; beveled; bold; boys'; breathable; breezy; canvas; casual; chic; classic; closed-toe; comfortable; comfy; contemporary; cooler; cushioned; cut-out; cute; cutting-edge; dainty; dapper; decorative; dependable; </p>
+        <% if jank == nil %>
+          <%= link_to 'Start Preorder', root_path, :class => 'btn btn-primary' %> |
 
-      <%= link_to 'ADD TO PRE-ORDER', new_reservation_path(:productid => @product), :class => 'btn btn-primary' %> |
-
+          <% else %>
+          <%= link_to 'ADD TO PRE-ORDER', new_reservation_path(:productid => @product, :customerid => jank), :class => 'btn btn-primary' %> |
+        <% end %>
 
     </div>
   </div>
@@ -41,16 +46,16 @@
 
 
 
+<!--<= image_tag @product.imageurl%>-->
+<!--<p>-->
+  <!--<strong>Serial Number:</strong>-->
+  <!--<= @product.serialnumber %>-->
+<!--</p>-->
 
-<p>
-  <strong>Serial Number:</strong>
-  <%= @product.serialnumber %>
-</p>
 
-
-<p>
-  <img src="<%= @product.imageurl %>" width="50%" height="50%">
-</p>
+<!--<p>-->
+  <!--<img src="<= @product.imageurl %>" width="50%" height="50%">-->
+<!--</p>-->
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
