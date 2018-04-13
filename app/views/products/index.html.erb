@@ -7,30 +7,54 @@
   </a>
 </h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for colors..." title="Type in a name">
-<ul id="myUL">
 
-  <% @products.each do |product| %>
-    <div2>
-  <div data-link="<%= product_path(product) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
-    <div class="card <%= product.color.hexidecimal %>" style="background-color: <%= product.color.hexidecimal %>;max-width: 260px; margin-right:20px">
-      <%= image_tag('defaultshoe.jpg', :size => "260x200")%>
-      <p style="padding-left:10px; padding-top:10px; color:#ffb209">
-        <%= product.product_name %> | </p>
-      <p style="padding-left:10px; padding-bottom:10px; color:#ffb209"><%= product.color.colorname %></p>
-      <!--<div class="card-action">-->
-        <!--<p style="font-size:8px"></p>-->
-      <!--</div>-->
-    </div>
-  </div>
-    </div2>
-  <% end %>
-
-</ul>
-<div class="panel panel-body" style="padding:0px;padding-left:10px;">
-  <%= pie_chart Product.mostpopprod, library: {legend: {position: "right"}},
-                colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
-                height:"300px",width:"540px",donut:true,download:true %>
+<!--<= form_tag search_path, method: :get do %>-->
+    <!--<= text_field_tag :search_imageurl, type: 'text' %>-->
+    <!--<= submit_tag "Search" %>-->
+<!--< end %>-->
+<strong><%= jank = @customer.split(/[^\d]/).join %></strong>
+<div class="container">
+  <ul id="myUL">
+    <% @products.each do |product| %>
+        <div id="div1">
+          <div id="div2" data-link="<%= product_path(product, :customerid => jank) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
+            <div class="card <%= product.color.hexidecimal %>" style="background-color: <%= product.color.hexidecimal %>;max-width: 260px; margin-right:20px">
+              <%= image_tag(product.imageurl, :size => "260x260")%>
+              <p style="padding-left:10px; padding-top:10px; color:#ffb209">
+                <%= product.product_name %> | </p>
+              <p style="padding-left:10px; padding-bottom:10px; color:#ffb209"><%= product.color.colorname %></p>
+              <!--<div class="card-action">-->
+              <!--<p style="font-size:8px"></p>-->
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </ul>
 </div>
+
+
+<script>
+    function myFunction() {
+        var input, filter, ul, div1, div2, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+
+        ul = document.getElementById("myUL");
+        div1 = ul.getElementsByTagName("div1");
+        for (i = 0; i < tr.length; i++) {
+            div2 = div1[i].getElementsById("div2")[0];
+            if (div2) {
+                if (div1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    div2[i].style.display = "";
+                } else {
+                    div2[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
 <script>
     function myFunction() {
         // Declare variables
@@ -65,3 +89,5 @@
 
     }
 </script>
+
+

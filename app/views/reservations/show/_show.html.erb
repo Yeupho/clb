@@ -1,0 +1,45 @@
+<ul class="collection">
+  <li class="collection-item avatar">
+    <img src="<%= @reservation.product.imageurl%>" alt="" class="circle">
+    <span class="title"><%= link_to @reservation.customer.full_customer_name, customer_path(@reservation.customerid) %></span>
+    <p><%= @reservation.date %><br>
+    <%= link_to @reservation.product.product_name, product_path(@reservation.productid) %> | Ser. #: <%= @reservation.product.serialnumber %>
+    </p>
+    <a href="#!" class="secondary-content"><p><%= @reservation.reservation_status.statusname %> </p><i class="material-icons">grade</i></a>
+  </li>
+
+</ul>
+
+<!--<p id="notice"><= notice %></p>-->
+
+<!--<p>-->
+  <!--<strong>Date:</strong>-->
+  <!--<= @reservation.date %>-->
+<!--</p>-->
+
+<!--<p>-->
+
+  <!--<strong>Customer:</strong>-->
+  <!--<= link_to @reservation.customer.full_customer_name, customer_path(@reservation.customerid) %>-->
+
+<!--</p>-->
+
+<!--<p>-->
+  <!--<strong>Pre-Order Status</strong>-->
+  <!--<= @reservation.reservestatusid %>-->
+<!--</p>-->
+
+<!--<p>-->
+  <!--<strong>Product</strong>-->
+  <!--<= @reservation.product.product_name %>-->
+<!--</p>-->
+
+
+
+<!--<p>-->
+  <!--<strong>Employeeid:</strong>-->
+  <!--<= @reservation.employeeid %>-->
+<!--</p>-->
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<!--<%= link_to 'Back', reservations_path %>-->

@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Pre-Orders
-  <a href="http://localhost:3000/customers/new" class=" resvervation-add btn-floating btn-large waves-effect waves-light red" >
+  <a href="http://localhost:3000/customers/new" class=" resvervation-add btn-floating btn-large waves-effect waves-light blue" >
+    <i class="material-icons">add</i>
+
+  </a>
+  <a href="http://localhost:3000/customers/" class=" resvervation-add btn-floating btn-large waves-effect waves-light red" >
     <i class="material-icons">add</i>
 
   </a>
@@ -12,6 +16,7 @@
 <div class="panel-heading">
 </div>
 <div class="panel-body" >
+
 <table id="myTable" class="table table-hover text-center striped">
   <thead>
     <tr>
@@ -38,13 +43,18 @@
         <td><%= reservation.size.sizename %></td>
         <td><%= reservation.employee.full_name2 %></td>
         <td><%= reservation.date %></td>
-      <td><div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-        <ul class="dropdown-menu">
-        <li><%= link_to 'Edit', edit_reservation_path(reservation) %></li>
-        <li><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        </ul>
-      </div></td>
+        <td><div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+          <li><%= link_to 'Show Details', reservation_path(reservation) %></li>
+          <li><%= link_to 'Edit', edit_reservation_path(reservation) %></li>
+          <li><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div></td>
+        <td><%= form_for reservation, :html => {style: "display: inline-block"} do |f| %>
+              <%= f.collection_select(:reservestatusid, ReservationStatus.all, :id, :statusname,
+                                      {}, {class: "form-control", onchange: "this.form.submit();"}) %>
+          <% end %></td>
       <td></td>
       <td></td>
       <td></td>
@@ -57,7 +67,6 @@
 </div>
 
 <br>
-<%= column_chart Employee.group(:employeetypeid).count %>
 <script>
     function myFunction() {
         var input, filter, table, tr, td, i;
