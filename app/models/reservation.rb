@@ -1,10 +1,10 @@
 class Reservation < ApplicationRecord
 
-  belongs_to :product, :class_name => Product, :foreign_key => 'productid', optional: true
-  belongs_to :customer, :class_name => Customer, :foreign_key => 'customerid', optional: true
-  belongs_to :size, :class_name => Size, :foreign_key => 'sizeid', optional: true
-  belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
-  belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
+  # belongs_to :product, :class_name => Product, :foreign_key => 'productid', optional: true
+  # belongs_to :customer, :class_name => Customer, :foreign_key => 'customerid', optional: true
+  # belongs_to :size, :class_name => Size, :foreign_key => 'sizeid', optional: true
+  # belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
+  # belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
 
   before_create :set_foo_to_now
   def set_foo_to_now
