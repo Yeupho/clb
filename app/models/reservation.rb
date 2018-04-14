@@ -1,19 +1,19 @@
 class Reservation < ApplicationRecord
 
-  # belongs_to :product, :class_name => Product, :foreign_key => 'productid', optional: true
-  # belongs_to :customer, :class_name => Customer, :foreign_key => 'customerid', optional: true
-  # belongs_to :size, :class_name => Size, :foreign_key => 'sizeid', optional: true
-  # belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
-  # belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
+  belongs_to :product, :class_name => Product, :foreign_key => 'productid', optional: true
+  belongs_to :customer, :class_name => Customer, :foreign_key => 'customerid', optional: true
+  belongs_to :size, :class_name => Size, :foreign_key => 'sizeid', optional: true
+  belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
+  belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
 
-  # before_create :set_foo_to_now
-  # def set_foo_to_now
-  #   self.date = DateTime.now
+    before_create :set_foo_to_now
+    def set_foo_to_now
+      self.date = DateTime.now
+    end
+
+  #   before_validation on: [:create, :update] do
+  #   self.date = Date.today
   # end
-
-  before_validation on: [:create, :update] do
-    self.date = Date.today
-  end
 
   def self.reservationsactive
       # CustomerEvent.select("customer_events.id, event_id, customers.first_name,
