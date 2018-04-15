@@ -20,7 +20,8 @@
   <div class="col s6">
   <div class="field">
     <%= form.label :material %>
-    <%= form.collection_select(:material_id, Material.order(:description), :id, :description, {prompt: "Material"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:materialid, Material.order(:description), :id, :description, {prompt: "Material"}, {class: "form-control", required: true}) %>
+
 
   </div>
   </div>

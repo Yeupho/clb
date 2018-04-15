@@ -6,7 +6,7 @@
     <i class="material-icons">add</i>
   </a>
 </h1>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for colors..." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products..." title="Type in a name">
 
 <!--<= form_tag search_path, method: :get do %>-->
     <!--<= text_field_tag :search_imageurl, type: 'text' %>-->
@@ -16,44 +16,23 @@
 <div class="container">
   <ul id="myUL">
     <% @products.each do |product| %>
-        <div id="div1">
-          <div id="div2" data-link="<%= product_path(product, :customerid => jank) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
+        <div2>
+          <div id="div" data-link="<%= product_path(product, :customerid => jank) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
             <div class="card <%= product.color.hexidecimal %>" style="background-color: <%= product.color.hexidecimal %>;max-width: 260px; margin-right:20px">
               <%= image_tag(product.imageurl, :size => "260x260")%>
-              <p style="padding-left:10px; padding-top:10px; color:#ffb209">
-                <%= product.product_name %> | </p>
+              <p style="padding-left:10px; padding-top:10px;ddilor:#ffb209">
+                <li2> <%= product.product_name %></li2> </p>
               <p style="padding-left:10px; padding-bottom:10px; color:#ffb209"><%= product.color.colorname %></p>
               <!--<div class="card-action">-->
               <!--<p style="font-size:8px"></p>-->
               <!--</div>-->
             </div>
           </div>
-        </div>
+        </div2>
     <% end %>
   </ul>
 </div>
 
-
-<script>
-    function myFunction() {
-        var input, filter, ul, div1, div2, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-
-        ul = document.getElementById("myUL");
-        div1 = ul.getElementsByTagName("div1");
-        for (i = 0; i < tr.length; i++) {
-            div2 = div1[i].getElementsById("div2")[0];
-            if (div2) {
-                if (div1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    div2[i].style.display = "";
-                } else {
-                    div2[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
 
 <script>
     function myFunction() {
@@ -71,15 +50,15 @@
 
 
         // Loop through all list items, and hide those who don't match the search query
-        for (i = 0; i < p2.length; i++) {
-            a = p2[i].getElementsByTagName("a")[0];
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
             if ((a.innerHTML.toUpperCase().indexOf(filter) > -1)) {
-                p2[i].style.display = "";
+                li[i].style.display = "";
                 ul2[i].style.display ="";
 
 
             } else {
-                p2[i].style.display = "none";
+                li[i].style.display = "none";
                 ul2[i].style.display ="none";
 
 

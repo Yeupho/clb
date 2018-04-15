@@ -35,7 +35,7 @@
   <ul id="myUL">
 
   <% @reservations.each do |reservation| %>
-      <tr>
+      <tr data-link="<%= reservation_path(reservation) %>" class="clickable-row">
 
         <td><%= reservation.customer.full_customer_name %></td>
         <td><%= reservation.reservation_status.statusname %></td>
