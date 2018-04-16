@@ -10,6 +10,16 @@ class MaterialsController < ApplicationController
   # GET /materials/1
   # GET /materials/1.json
   def show
+    # @transactions = Reservation.select('customers.id AS id, date, products.product_name AS shoe, products.imageurl AS imageurl,
+    #                     sizes.sizename, reservation_statuses.statusname AS resstat, products.serialnumber as num, customers.id')
+    #                     .joins('INNER JOIN products ON products.id = reservations.productid')
+    #                     .joins('INNER JOIN sizes ON sizes.id = reservations.sizeid')
+    #                     .joins('INNER JOIN customers ON customers.id = reservations.customerid')
+    #                     .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
+    #                     .where('customers.id = ?', params[:id]).where('reservations.reservestatusid = 1').limit(100)
+    @countmat = Product.select('products.id, products.product_name AS shoe, products.imageurl AS imageurl, products.serialnumber as num')
+                    .joins('INNER JOIN materials ON materials.id = products.material_id')
+                    .where('materials.id = ?', params[:id])
   end
 
   # GET /materials/new

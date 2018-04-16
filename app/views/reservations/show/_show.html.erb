@@ -5,7 +5,8 @@
     <p><%= @reservation.date %><br>
     <%= link_to @reservation.product.product_name, product_path(@reservation.productid) %> | Ser. #: <%= @reservation.product.serialnumber %>
     </p>
-    <a href="#!" class="secondary-content"><p><%= @reservation.reservation_status.statusname %> </p><i class="material-icons">grade</i></a>
+    <a href="#!" class="secondary-content"><p>
+      <%= @reservation.reservation_status.statusname %> </p><i class="material-icons">grade</i></a>
   </li>
 
 </ul>
@@ -41,5 +42,5 @@
   <!--<= @reservation.employeeid %>-->
 <!--</p>-->
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<!--<%= link_to 'Back', reservations_path %>-->
+<%= link_to 'Edit', edit_reservation_path(@reservation), :class => 'btn btn-primary', :style => 'color:white;'  %> |
+<%= link_to 'Back', reservations_path, :class => 'btn btn-primary', :style => 'color:white;' %>

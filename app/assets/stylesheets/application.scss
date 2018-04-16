@@ -196,8 +196,16 @@ a:visited{
   background: rgb(234, 35, 45);
 }
 
+//DROP DOWN
 .btn-default{
-  background: rgb(192, 192, 192);
+  background: rgb(255, 255, 255);
+}
+.caret{
+  color: #959595;
+}
+
+.btn-primary{
+  background-color: rgb(0, 0, 0)
 }
 
 #footer {
@@ -206,4 +214,17 @@ a:visited{
   width: 644px;
   height: 20px;
   margin: 0 auto;
+}
+
+.btn:visited {
+  text-decoration: none;
+}
+.breadcrumb {
+  background-color: rgba(13, 32, 84, 0);
+}
+a.breadcrumb:visited{
+  text-decoration: none;
+}
+.nav-wrapper {
+  background-color: black
 }

@@ -10,6 +10,13 @@ class Customer < ApplicationRecord
   def full_customer_name
       ' ' + self.firstname + ' ' + self.lastname + ' ' + self.phone
   end
+  def full_name2
+    ' ' + self.firstname + ' ' + self.lastname + ' ' + self.phone
+  end
+
+  def full_name3
+    ' ' + self.firstname + ' ' + self.lastname
+  end
 
   def self.next(cust)
     where('id < ?', cust.id).last

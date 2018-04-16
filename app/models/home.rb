@@ -6,7 +6,12 @@ class Home < ApplicationRecord
   def self.today_count
     Reservation.where(:date => Date.today).count(:date)
   end
-  def self.today_countupdate
-    Reservation.where(:date => Date.today).where(:updated_at => Date.today).where(:reservestatusid => 2).count(:created_at)
+
+  def self.today_pending
+    Reservation.where(:updated_at => Date.today.all_day).where(:reservestatusid => 2).count(:updated_at)
+  end
+
+  def self.today_complete
+    Reservation.where(:updated_at => Date.today.all_day).where(:reservestatusid => 3).count(:updated_at)
   end
 end

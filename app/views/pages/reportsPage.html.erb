@@ -60,9 +60,3 @@
   <div class="col s5"><%= pie_chart Product.mostpopprod, title: 'Count of Products',library: {legend: {position: "right"}},
                                     height:"300px",width:"540px",donut:true,download:true %></div>
 </div>
-
-<div>
-  <%= column_chart Reservation.countmonths %>
-  <%= column_chart Employee.group(:employeetypeid).count %>
-
-</div>
