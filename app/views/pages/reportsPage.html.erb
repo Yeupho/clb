@@ -1,11 +1,68 @@
-<div class="panel panel-body" style="padding:0px;padding-left:10px;">
-  <%= pie_chart Product.mostpopprod, library: {legend: {position: "right"}},
-                colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
-                height:"300px",width:"540px",donut:true,download:true %>
-</div>
-<div>
-  <%= column_chart Reservation.countweeks %>
+<div class="row center-align">
 
+  <div class="card horizontal col s2" style="background-color:grey; margin-right:20px;">
+    <div class="card-image" style="margin-top: 10px;margin-right:10px;">
+      <i class="medium material-icons" style="color:ghostwhite">child_care</i>
+    </div>
+    <div class="card-stacked" style="background-color: darkgrey">
+      <div class="card-content" style="margin:0; padding:0">
+        <h4 style="color:ghostwhite"><%= Reservation.countcust %></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card horizontal col s2" style="background-color:grey; margin-right:20px;">
+    <div class="card-image" style="margin-top: 10px;margin-right:10px;">
+      <i class="medium material-icons" style="color:ghostwhite">playlist_add</i>
+    </div>
+    <div class="card-stacked" style="background-color: darkgrey">
+      <div class="card-content" style="margin:0; padding:0">
+        <h4 style="color:ghostwhite"><%= Reservation.countreserve%></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card horizontal col s2" style="background-color:grey; margin-right:20px;">
+    <div class="card-image" style="margin-top: 10px;margin-right:10px;">
+      <i class="medium material-icons" style="color:ghostwhite">playlist_add_check</i>
+    </div>
+    <div class="card-stacked" style="background-color: darkgrey">
+      <div class="card-content" style="margin:0; padding:0">
+        <h4 style="color:ghostwhite"><%= Reservation.countcust %></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card horizontal col s4" style="background-color:grey; margin-right:20px;">
+    <div class="card-image" style="margin-top: 10px;margin-right:10px;">
+      <i class="medium material-icons" style="color:ghostwhite">stars</i>
+    </div>
+    <div class="card-stacked" style="background-color: darkgrey">
+      <div class="card-content" style="margin:0; padding:0">
+        <h5 style="color:ghostwhite">Katy Bob 20<% jank = Reservation.mostprodemp %><%= jank.delete("^0-9").to_s %>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col s7"><%= column_chart Reservation.countweeks, title: 'Number of Pre Orders by Week' %></div>
+  <div class="col s5"><%= pie_chart Material.countmat, title: 'Most Popular Materials', legend: 'bottom', colors:["#2956A8","#DE4276","#F5D857","#ECECD7","#4D4D4C"], donut: true %></div>
+
+</div>
+<div class="panel panel-body" style="padding:0px;padding-left:10px;">
+
+</div>
+
+<div class="row">
+  <div class="col s7"><%= column_chart Reservation.countmonths,title: 'Number of Pre Orders by Month' %></div>
+  <div class="col s5"><%= pie_chart Product.mostpopprod, title: 'Count of Products',library: {legend: {position: "right"}},
+                                    height:"300px",width:"540px",donut:true,download:true %></div>
+</div>
+
+<div>
+  <%= column_chart Reservation.countmonths %>
   <%= column_chart Employee.group(:employeetypeid).count %>
 
 </div>

@@ -14,7 +14,7 @@
 <!--< end %>-->
 <strong><%= jank = @customer.split(/[^\d]/).join %></strong>
 <div class="container">
-  <ul id="myUL">
+  <div id="myUL">
     <% @products.each do |product| %>
         <div id="div1">
           <div id="div2" data-link="<%= product_path(product, :customerid => jank) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
@@ -30,7 +30,7 @@
           </div>
         </div>
     <% end %>
-  </ul>
+  </div>
 </div>
 
 

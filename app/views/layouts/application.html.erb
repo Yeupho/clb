@@ -27,8 +27,8 @@
           <% if current_user.try(:admin?) %>
             <li> <%= link_to "Materials",materials_path,class: "white-text navbar-brand" %></li>
             <li> <%= link_to "Colors", colors_path,class: "white-text navbar-brand" %></li>
-            <li> <%= link_to "Admin", admin_path,class: "white-text navbar-brand" %></li>
-            <li> <%= link_to "Reports", colors_path,class: "white-text navbar-brand" %></li>
+            <li> <%= link_to "Admin", '/adminpage',class: "white-text navbar-brand" %></li>
+            <li> <%= link_to "Reports", '/pages/reportsPage',class: "white-text navbar-brand" %></li>
           <%end%>
 
           <li> <%= link_to "Pre-Orders", reservations_path,class: " white-text navbar-brand"%></li>

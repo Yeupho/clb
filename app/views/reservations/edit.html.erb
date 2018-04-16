@@ -2,6 +2,11 @@
 
 
   <h1>Editing Reservation</h1>
+    <div class="field">
+      <%= form.label :"Customer" %>
+      <%= form.collection_select(:customerid, Customer.order(:firstname), :id, :full_name2, {prompt: "Customer Name"}, {class: "form-control", required: true}) %>
+
+    </div>
   <div class="field">
     <%= form.label :"Status" %>
     <%= form.collection_select(:reservestatusid, ReservationStatus.all, :id, :statusname, {prompt: "Status"}, {class: "form-control", required: true}) %>
@@ -14,7 +19,7 @@
   </div>
   <div class="field">
     <%= form.label :"Employee" %>
-    <%= form.collection_select(:employeeid, Employee.order(:firstname), :id, :full_name2, {prompt: "Employee name"}, {class: "form-control", required: true}) %>
+    <%= form.collection_select(:employeeid, Employee.order(:firstname), :id, :full_name2, {prompt: "Employee Name"}, {class: "form-control", required: true}) %>
 
   </div>
   <div class="field">
