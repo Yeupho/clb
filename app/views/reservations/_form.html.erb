@@ -11,6 +11,20 @@
     </div>
   <% end %>
 
+    <% if :customerid == nil || :customerid == "" %>
+        <p></p>
+    <% else%>
+        <nav>
+          <div class="nav-wrapper">
+            <div class="col s12">
+              <a href="" class="breadcrumb" style="color:white;">Select Product</a>
+              <a href="" class="breadcrumb" style="color:white;">Add Product</a>
+              <a href="" class="breadcrumb" style="color:orange;">Finalize Order</a>
+            </div>
+          </div>
+        </nav>
+    <% end %>
+
     <!--<div class="field">-->
       <!--<= form.label :"Customer" %>-->
       <!--<= form.collection_select(:customerid, Customer.all, :id, :full_customer_name, {prompt: "Customer"}, {class: "form-control", required: true}) %>-->

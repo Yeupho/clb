@@ -38,6 +38,6 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-  config.excluded_models = ["Model","Heel","Home","Color", "CustomerStatus", "EmployeeStatus","EmployeeType","ProductStatus","ReservationStatus"]
+  config.excluded_models = ["Size","Model","Heel","Home","Color", "CustomerStatus", "EmployeeStatus","EmployeeType","ProductStatus","ReservationStatus"]
 
 end

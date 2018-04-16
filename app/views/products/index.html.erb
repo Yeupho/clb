@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
+<strong><% jank = @customer.split(/[^\d]/).join %></strong>
+
+<% if jank == nil || jank == "" %>
+    <p></p>
+    <% else%>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="col s12">
+          <a href="" class="breadcrumb" style="color:orange;">Select Product</a>
+          <a href="" class="breadcrumb" style="color:white;">Add Product</a>
+          <a href="" class="breadcrumb" style="color:white;">Finalize Order</a>
+        </div>
+      </div>
+    </nav>
+<% end %>
 
 <h1>Products
 
@@ -12,20 +27,27 @@
     <!--<= text_field_tag :search_imageurl, type: 'text' %>-->
     <!--<= submit_tag "Search" %>-->
 <!--< end %>-->
-<strong><%= jank = @customer.split(/[^\d]/).join %></strong>
-<div class="container">
+<div class="container-fluid">
   <div id="myUL">
     <% @products.each do |product| %>
         <div2>
           <div id="div" data-link="<%= product_path(product, :customerid => jank) %>" class="clickable-row" style="float: left; max-height:350px; margin-top:25px;">
             <div class="card <%= product.color.hexidecimal %>" style="background-color: <%= product.color.hexidecimal %>;max-width: 260px; margin-right:20px">
               <%= image_tag(product.imageurl, :size => "260x260")%>
-              <p style="padding-left:10px; padding-top:10px;ddilor:#ffb209">
-                <li2> <%= product.product_name %></li2> </p>
-              <p style="padding-left:10px; padding-bottom:10px; color:#ffb209"><%= product.color.colorname %></p>
+              <div class="row">
+                <div class="col l10">
+                  <p style="padding-left:10px; padding-top:10px;color:#ffb209">
+                  <li2> <%= product.product_name %></li2> </p>
+                  <p style="padding-left:10px; padding-bottom:10px; color:#ffb209"><%= product.color.colorname %></p></div>
+                <div class="col l2"></div>
+              </div>
+
               <!--<div class="card-action">-->
               <!--<p style="font-size:8px"></p>-->
               <!--</div>-->
+
+ <!--<li>%= link_to 'Delete', delete_customer_index_path(id: customer.id, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this customer?' } %></li>-->
+            </ul>
             </div>
           </div>
         </div2>

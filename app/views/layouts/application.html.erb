@@ -24,17 +24,19 @@
 
 
         <% if user_signed_in? %>
-          <% if current_user.try(:admin?) %>
-            <li> <%= link_to "Materials",materials_path,class: "white-text navbar-brand" %></li>
-            <li> <%= link_to "Colors", colors_path,class: "white-text navbar-brand" %></li>
-            <li> <%= link_to "Admin", '/adminpage',class: "white-text navbar-brand" %></li>
-            <li> <%= link_to "Reports", '/pages/reportsPage',class: "white-text navbar-brand" %></li>
-          <%end%>
 
           <li> <%= link_to "Pre-Orders", reservations_path,class: " white-text navbar-brand"%></li>
           <li> <%= link_to "Products", products_path,class: " white-text navbar-brand"%></li>
           <li> <%= link_to "Customers", customers_path,class: " white-text navbar-brand" %></li>
 
+            <% if current_user.try(:admin?) %>
+                <li><p class="white-text navbar-brand">|</p></li>
+                <li> <%= link_to "Materials",materials_path,class: "white-text navbar-brand" %></li>
+                <li> <%= link_to "Colors", colors_path,class: "white-text navbar-brand" %></li>
+                <li> <%= link_to "Reports", '/pages/reportsPage',class: "white-text navbar-brand" %></li>
+                <li> <%= link_to "Admin", '/adminpage',class: "white-text navbar-brand" %></li>
+            <%end%>
+          <li><p class="white-text navbar-brand">|</p></li>
           <li> <%= link_to "About", pages_about_path,class: "white-text navbar-brand" %></li>
           <li><%= link_to "Logout", destroy_user_session_path,class: "white-text navbar-brand"%></li>
         <%else %>
@@ -64,7 +66,7 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Christian Louboutin</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          <p class="grey-text text-lighten-4"></p>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Site Map</h5>

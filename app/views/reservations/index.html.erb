@@ -5,11 +5,17 @@
     <i class="material-icons">add</i>
 
   </a>
-  <a href="http://localhost:3000/customers/" class=" resvervation-add btn-floating btn-large waves-effect waves-light red" >
+  <a href="http://localhost:3000/customers/" class=" resvervation-add btn-floating btn-large waves-effect waves-light red tooltipped"
+     data-position="bottom" data-tooltip="I am a tooltip">
     <i class="material-icons">add</i>
 
   </a>
+  <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip">Hover me!</a>
 </h1>
+<script>
+
+
+</script>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for pre-order..." title="Type in a name">
 
 <div class="panel panel-default shadow-pane" style="min-width:100%">
@@ -37,7 +43,7 @@
   <% @reservations.each do |reservation| %>
       <tr data-link="<%= reservation_path(reservation) %>" class="clickable-row">
 
-        <td><%= reservation.customer.full_customer_name %></td>
+        <td><%= reservation.customer.full_name3 %><br><%= reservation.customer.phone %></td>
         <td><%= reservation.reservation_status.statusname %></td>
         <td><%= reservation.product.product_name %></td>
         <td><%= reservation.size.sizename %></td>

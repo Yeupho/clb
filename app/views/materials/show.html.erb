@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
+<h1>Material Details for: <%= @material.description %></h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @material.description %>
-</p>
+<br><br>
 
-<%= link_to 'Edit', edit_material_path(@material) %> |
-<%= link_to 'Back', materials_path %>
+<div class="panel panel-default shadow-pane">
+  <div class="panel-heading">Shoes containing Material
+  </div>
+  <div class="panel-body">
+  </div>
+  <ul class="collection">
+    <% @countmat.each do |t| %>
+        <li class="collection-item avatar">
+          <img src="<%= t.imageurl %>" alt="" class="circle">
+          <span class="title"><%= t.shoe.to_s %> | Serial#: <%= t.num.to_s %></span>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to 'Edit', edit_material_path(@material), class: 'btn btn-primary', style: 'color: white'%> |
+<%= link_to 'Back', materials_path, class: 'btn btn-primary', style: 'color: white' %>

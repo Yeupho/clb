@@ -17,28 +17,31 @@
     <%= form.text_field :product_name, id: :product_Product_Name , :required => true%>
   </div>
   <div class="row">
-  <div class="col s6">
-  <div class="field">
-    <%= form.label :material %>
-    <%= form.collection_select(:materialid, Material.order(:description), :id, :description, {prompt: "Material"}, {class: "form-control", required: true}) %>
+    <div class="col s4">
+      <div class="field">
+        <%= form.label :material %>
+        <%= form.collection_select(:material_id, Material.order(:description), :id, :description, {prompt: "Material"}, {class: "form-control", required: true}) %>
 
 
-  </div>
-  </div>
-    <div class="col s6">
+      </div>
+    </div>
+      <div class="col s4">
 
-    <div class="field">
-    <%= form.label :heel %>
-    <%= form.collection_select(:heel_id, Heel.all, :id, :height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
+      <div class="field">
+      <%= form.label :heel %>
+      <%= form.collection_select(:heel_id, Heel.all, :id, :height, {prompt: "Heel"}, {class: "form-control", required: true}) %>
 
-  </div>
+      </div>
+    </div>
+    <div class="col s4">
+      <div class="field">
+        <%= form.label :Color %>
+        <%= form.collection_select(:color_id, Color.order(:colorname), :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
+
+      </div>
     </div>
   </div>
-  <div class="field">
-    <%= form.label :Color %>
-    <%= form.collection_select(:color_id, Color.order(:colorname), :id, :colorname, {prompt: "Color"}, {class: "form-control", required: true}) %>
 
-  </div>
 
 
 

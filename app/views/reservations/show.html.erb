@@ -1,3 +1,9 @@
+
+<h2>Pre-Order <%= form_for @reservation, :html => {style: "display: inline-block"} do |f| %>
+      <%= f.collection_select(:reservestatusid, ReservationStatus.all, :id, :statusname,
+                              {}, {class: "form-control", onchange: "this.form.submit();"}) %>
+  <% end %> </h2>
+
 <div>
   <%= render 'reservations/show/show'%>
 </div>

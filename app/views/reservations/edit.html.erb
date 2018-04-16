@@ -1,7 +1,6 @@
 <%= form_with(model: @reservation, local: true) do |form| %>
 
-
-  <h1>Editing Reservation</h1>
+  <h1>Editing Pre-Order</h1>
     <div class="field">
       <%= form.label :"Customer" %>
       <%= form.collection_select(:customerid, Customer.order(:firstname), :id, :full_name2, {prompt: "Customer Name"}, {class: "form-control", required: true}) %>
@@ -29,6 +28,6 @@
   <%= form.collection_select(:productid, Product.order(:product_name), :id, :product_name, {prompt: "Product"}, {class: "form-control", required: true}) %>
   </div>
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary'%>
+    <%= form.submit title: 'UPDATE PRE-ORDER', class: 'btn btn-primary'%>
   </div>
 <% end %>

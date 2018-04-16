@@ -30,12 +30,12 @@ jQuery(function($) {
     $(document).on('click', ".clickable-row a", function() {
         $(this).stopPropagation();
     });
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+
+
 
     $(document).ready(function(){
         $(".dropdown-trigger").dropdown({ hover: false });
     });
+
 });
 

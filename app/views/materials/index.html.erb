@@ -33,27 +33,22 @@
       </thead>
 
     <% @materials.each do |material| %>
+      <tbody>
+          <tr data-link="<%= material_path(material) %>" class="clickable-row">
 
-        <tr data-link="<%= material_path(material) %>" class="clickable-row">
+          <td><%= material.description %></td>
 
-        <td><%= material.description %></td>
+            <td><div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Edit', edit_material_path(material)%></li>
+              </ul>
 
 
-
-          <td><div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Edit', edit_material_path(material), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
-
-              <li><%= link_to 'Delete', material_path(material, type: :normal),
-                              method: :delete,class: ' ', data: { confirm: 'Are you sure?' },
-                              redirect_to: '/admin#colors_tab' %></li>
-            </ul>
-
-      </div></td>
-        </tr>
-    <% end %>
-    </tbody>
+        </div></td>
+          </tr>
+      <% end %>
+      </tbody>
     </table>
 </div>
 </div>

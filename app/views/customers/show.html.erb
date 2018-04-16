@@ -3,22 +3,25 @@
 <br>
 <div class="col s12 m7">
   <div class="row">
-    <div class="col s8 left-align">
+    <div class="col s6 left-align">
       <h3 class="header"><%= @customer.firstname %> <%= @customer.lastname %></h3>
       <%= form_for @customer, :html => {style: "display: inline-block"} do |f| %>
           <%= f.collection_select(:customerstatusid, CustomerStatus.all, :id, :description, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
       <% end %>
     </div>
-    <div class=" col s4 right-align">
+    <div class=" col s6 right-align">
       <!--<h3><= @customer.customer_status.description %></h3>-->
-      <a class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">add</i></a>
-      <a class="btn-floating btn-large waves-effect waves-light brown lighten-4"><i class="material-icons">chevron_left</i></a>
-      <a class="btn-floating btn-large waves-effect waves-light light-blue lighten-3"><i class="material-icons"></i></a>
-      <%= link_to 'ADD TO PRE-ORDER', products_path(:customerid => @customer), :class => 'btn btn-primary' %>
+      <!--<a class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">add</i></a>-->
+      <!--<a class="btn-floating btn-large waves-effect waves-light brown lighten-4"><i class="material-icons">chevron_left</i></a>-->
+      <!--<a class="btn-floating btn-large waves-effect waves-light light-blue lighten-3"><i class="material-icons"></i></a>-->
+      <%= link_to 'ADD TO PRE-ORDER', products_path(:customerid => @customer), :class => 'btn btn-primary', :style => 'color:white;' %>
+      <%= link_to 'Create Customer', new_customer_path, :class => 'btn btn-primary', :style => 'color:white;'  %>
+      <%= link_to 'BACK', customers_path, :class => 'btn btn-primary', :style => 'color:white;' %>
+
     </div>
   </div>
   <div class="card horizontal">
-    <div class="card-image" style="background-color:teal; width:20px; max-height:100%">
+    <div class="card-image" style="background-color:#EA232D; width:20px; max-height:100%">
 
     </div>
     <div class="card-stacked">
@@ -92,30 +95,28 @@
   <div class="panel-heading">Awaiting Customer Pickup
   </div>
   <div class="panel-body">
-    <!--<table class="table table-hover text-center striped">-->
-      <!--<thead>-->
-      <!--<tr>-->
-        <!--<th>Date</th>-->
-        <!--<th>Product</th>-->
-        <!--<th>Size (mm)</th>-->
-        <!--<th>Reserve Status</th>-->
-
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-      <!--< @transactions2.each do |t| %>-->
-          <!--<tr>-->
-            <!--<td><= t.date %> </td>-->
-            <!--<td><= t.producta.to_s %> </td>-->
-            <!--<td><= t.sizename %> </td>-->
-            <!--<td><= t.resstat %></td>-->
-          <!--</tr>-->
-          <!--</tbody>-->
-      <!--< end %>-->
-      <!--</table>-->
   </div>
   <ul class="collection">
     <% @transactions2.each do |t| %>
+        <li class="collection-item avatar">
+          <img src="<%= t.imageurl %>" alt="" class="circle">
+          <span class="title"><%= t.producta.to_s %> | Serial#: <%= t.num.to_s %></span>
+          <p><%= t.date %><br>
+            <%= t.resstat %>
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="panel panel-default shadow-pane">
+  <div class="panel-heading">Orders Completed
+  </div>
+  <div class="panel-body">
+  </div>
+  <ul class="collection">
+    <% @transactions3.each do |t| %>
         <li class="collection-item avatar">
           <img src="<%= t.imageurl %>" alt="" class="circle">
           <span class="title"><%= t.producta.to_s %> | Serial#: <%= t.num.to_s %></span>
