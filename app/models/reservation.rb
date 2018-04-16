@@ -6,10 +6,15 @@ class Reservation < ApplicationRecord
   belongs_to :reservation_status, :class_name => ReservationStatus, :foreign_key => 'reservestatusid', optional: true
   belongs_to :employee, :class_name => Employee, :foreign_key => 'employeeid', optional: true
 
-  before_create :set_foo_to_now
-  def set_foo_to_now
-    self.date = DateTime.now
-  end
+    before_create :set_foo_to_now
+    def set_foo_to_now
+      self.date = DateTime.now
+    end
+
+  #   before_validation on: [:create, :update] do
+  #   self.date = Date.today
+  # end
+
 
   # before_validation on: [:create, :update] do
   #   self.date = Date.today

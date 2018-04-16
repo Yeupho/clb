@@ -28,7 +28,7 @@ class ColorsController < ApplicationController
 
     respond_to do |format|
       if @color.save
-        format.html { redirect_to @color, notice: 'Color was successfully created.' }
+        format.html { redirect_to colors_path, notice: 'Color was successfully created.' }
         format.json { render :show, status: :created, location: @color }
       else
         format.html { render :new }

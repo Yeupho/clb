@@ -17,8 +17,8 @@
  */
 
 
-//@import "bootstrap-sprockets";
-//@import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "styles";
 @import "materialize";
 @import "fullcalendar";
@@ -176,16 +176,34 @@ a:visited{
 //Panel
 .panel > .panel-heading {
   background-image: none;
-  background: #009688;
+  background: rgba(0, 0, 0, 0.88);
   color: white;
 
 }
 .page-footer {
+  position: relative;
+  bottom: 0;
   background-image: none;
-  background: #009688;
+  background: #000000;
 }
 
 .btn {
   text-color: white;
   color: white;
+}
+
+.navbar{
+  background: rgb(234, 35, 45);
+}
+
+.btn-default{
+  background: rgb(192, 192, 192);
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 644px;
+  height: 20px;
+  margin: 0 auto;
 }
