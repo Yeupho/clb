@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   devise_for :models
-  resources :sizes
 
-  mount RailsAdmin::Engine => '/adminthing', as: 'rails_admin'
+  post 'search' => 'products#search'
+  get 'products/search' => 'products#search', as: 'search_products'
+
+
+  mount RailsAdmin::Engine => '/adminpage', as: 'rails_admin'
 
 
 
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   #Root Index
-  root 'homes#index'
+  root 'homes#index', controller: 'homes'
   #root 'reservations#index'
 
   get 'search' => 'products#show'
@@ -23,6 +26,9 @@ Rails.application.routes.draw do
   #admin
   get 'admin' => 'admin#index'
 
+
+
+  resources :sizes
   resources :employee_statuses
   resources :employee_types
   resources :employees

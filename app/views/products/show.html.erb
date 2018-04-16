@@ -3,7 +3,8 @@
 <p>
 
 </p>
-<%= jank = @customer.split(/[^\d]/).join%>
+<%= @customer %>
+<%= tango = @customer.split(/[^\d]/).join %>
 <div class=" ">
   <h2><%= @product.product_name %> </h2>
   <div class="row">
@@ -32,11 +33,10 @@
       </p>
       <strong>Description:</strong>
       <p>adjustable; adorable; anatomic; anatomically designed; anti-fatigue; antimicrobial ; athletic; beveled; bold; boys'; breathable; breezy; canvas; casual; chic; classic; closed-toe; comfortable; comfy; contemporary; cooler; cushioned; cut-out; cute; cutting-edge; dainty; dapper; decorative; dependable; </p>
-        <% if jank == nil %>
-          <%= link_to 'Start Preorder', root_path, :class => 'btn btn-primary' %> |
-
+        <% if tango == nil || tango == "" %>
+          <%= link_to 'BEGIN PRE-ORDER', root_path, :class => 'btn btn-primary' %> |
           <% else %>
-          <%= link_to 'ADD TO PRE-ORDER', new_reservation_path(:productid => @product, :customerid => jank), :class => 'btn btn-primary' %> |
+           <%= link_to 'ADD TO PRE-ORDER', new_reservation_path(:productid => @product, :customerid => tango), :class => 'btn btn-primary' %> |
         <% end %>
 
     </div>
@@ -58,5 +58,5 @@
 <!--</p>-->
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %> |
+<%= link_to 'Back', products_path, class: 'btn btn-primary' %>

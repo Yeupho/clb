@@ -15,6 +15,11 @@ class Reservation < ApplicationRecord
   #   self.date = Date.today
   # end
 
+
+  # before_validation on: [:create, :update] do
+  #   self.date = Date.today
+  # end
+
   def self.reservationsactive
       # CustomerEvent.select("customer_events.id, event_id, customers.first_name,
       #   customers.last_name, kids_painting, adults_painting, number_in_party")
@@ -28,10 +33,13 @@ class Reservation < ApplicationRecord
                         .joins('INNER JOIN customers ON cfustomers.id = reservations.customerid')
                         .joins('INNER JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid')
                         .where('reservestatusid = ?', params[:reservestatusid]).limit(100)
-
-
-
   end
+
+  def self.mostprodemp
+    Reservation.find_by_sql("SELECT employees.id, CONCAT(employees.firstname || ' ' || employees.lastname) AS fullname, COUNT(*) FROM reservations INNER JOIN employees ON employees.id = reservations.employeeid GROUP BY fullname, employees.id ORDER BY COUNT(*) DESC LIMIT 1")
+    # Reservation.select('employees.firstname AS name, COUNT(reservations.id)').joins('INNER JOIN employees ON employees.id = reservations.employeeid').group('employees.firstname')
+  end
+
   # Reservation.select('date, products.product_name AS producta, products.imageurl AS imageurl, sizes.sizename, reservation_statuses.statusname AS resstat, customers.id').joins('JOIN products ON products.id = reservations.customerid').joins('JOIN sizes ON sizes.id = reservations.sizeid').joins('JOIN customers ON customers.id = reservations.customerid').joins('JOIN reservation_statuses ON reservation_statuses.id = reservations.reservestatusid').where('reservestatusid = ?', params[:reservestatusid]).limit(100)
   def self.countorder
     Reservation.group_by_day(:date, format: '%a').count
@@ -40,6 +48,19 @@ class Reservation < ApplicationRecord
   def self.countweeks
     Reservation.group_by_day_of_week(:date, format: '%a').count
   end
+
+  def self.countmonths
+    Reservation.group_by_month(:date, format: "%b %Y").count
+  end
+
+  def self.countcust
+    Customer.where(:created_at => 1.months.ago..Time.now).count
+  end
+
+  def self.countreserve
+    Reservation.where(:date => 1.months.ago..Time.now).count
+  end
+
 
   scope :search_query, -> {Reservation.all}
   scope :with_create_at, -> {where(:created_at <= Date.today)}

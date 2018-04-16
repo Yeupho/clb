@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   end
 
+
   # GET /products/1
   # GET /products/1.json
   def show
@@ -22,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @product = Product.find_by_imageurl params[:search_imageurl]
+    @product = Product.find_by_serialnumber params[:search_serialnumber]
     render action: 'show'
   end
 
